@@ -2,6 +2,7 @@ import { Nav } from "@/components/Nav";
 import { Progress } from "@/components/Progress";
 import { LiveBackground } from "@/components/LiveBackground";
 import { BootSequence } from "@/components/BootSequence";
+import { LabCursor } from "@/components/LabCursor";
 import { CommandPalette } from "@/components/CommandPalette";
 import { StatusBar } from "@/components/StatusBar";
 import { ToastHost } from "@/components/Toast";
@@ -19,6 +20,7 @@ export default function HomePage() {
     <>
       <BootSequence />
       <LiveBackground />
+      <LabCursor />
       <CommandPalette />
       <ToastHost />
       <Progress />

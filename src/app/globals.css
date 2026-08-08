@@ -214,3 +214,9 @@
 footer {
   padding-bottom: 3.25rem;
 }
+
+body.lab-cursor-on,
+body.lab-cursor-on a,
+body.lab-cursor-on button {
+  cursor: none;
+}
