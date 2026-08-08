@@ -1,46 +1,37 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Space_Grotesk } from "next/font/google";
+import { Syne, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 
-const display = Archivo_Black({
-  weight: "400",
+const display = Syne({
   subsets: ["latin"],
-  variable: "--font-archivo",
+  variable: "--font-syne",
+  weight: ["500", "600", "700", "800"],
 });
 
-const body = Space_Grotesk({
+const body = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-grotesk",
+  variable: "--font-dm",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: `${site.name} — Build · Verify · Secure · Ship`,
+  title: `${site.name} — Full-Stack · QA · API Security`,
   description:
-    "Immersive portfolio of Dharshan Paramasivan — Full-Stack Engineer, QA Automation, and API Security.",
+    "Professional portfolio of Dharshan Paramasivan — full-stack engineering, QA automation, and API security.",
   metadataBase: new URL("https://dharshan-paramasivan.github.io/portfolio"),
   openGraph: {
-    title: `${site.name} — Build · Verify · Secure · Ship`,
-    description:
-      "Full-stack systems, QA automation, and API security — presented as a personal brand experience.",
-    type: "website",
-    images: ["/images/hero-portrait.png"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: site.name,
+    title: `${site.name} — Full-Stack · QA · API Security`,
     description: site.tagline,
-    images: ["/images/hero-portrait.png"],
+    type: "website",
+    images: ["/images/portrait-editorial.png"],
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body className="bg-bg font-sans text-ink antialiased">
-        <div className="grain" aria-hidden />
-        {children}
-      </body>
+      <body className="bg-paper font-sans text-ink antialiased">{children}</body>
     </html>
   );
 }

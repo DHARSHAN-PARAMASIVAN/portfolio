@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #f4f7fb;
-  --color-mute: #93a4b8;
-  --color-bg: #05070b;
-  --color-panel: #0b1018;
-  --color-line: rgba(244, 247, 251, 0.12);
-  --color-cyan: #22d3ee;
-  --color-cyan-dim: rgba(34, 211, 238, 0.16);
-  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --color-paper: #f4f6f8;
+  --color-paper-2: #e9eef3;
+  --color-ink: #0f172a;
+  --color-soft: #334155;
+  --color-mute: #64748b;
+  --color-line: rgba(15, 23, 42, 0.1);
+  --color-panel: #ffffff;
+  --color-night: #0b1220;
+  --color-accent: #1d4ed8;
+  --color-accent-2: #0ea5e9;
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-dm), ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -19,42 +21,44 @@
   }
 
   body {
-    background: var(--color-bg);
+    background:
+      radial-gradient(900px 500px at 100% -10%, rgba(14, 165, 233, 0.12), transparent 55%),
+      radial-gradient(700px 420px at -10% 20%, rgba(29, 78, 216, 0.08), transparent 50%),
+      var(--color-paper);
     color: var(--color-ink);
-    font-family: var(--font-body);
     overflow-x: hidden;
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--color-cyan) 40%, transparent);
+    background: color-mix(in oklab, var(--color-accent-2) 35%, white);
   }
 }
 
 @layer utilities {
   .wrap {
-    width: min(100% - 2.2rem, 1180px);
+    width: min(100% - 2rem, 1120px);
     margin-inline: auto;
   }
 
   .display {
     font-family: var(--font-display);
-    letter-spacing: -0.045em;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    line-height: 0.9;
+    color: var(--color-accent);
   }
 
-  .grain {
-    pointer-events: none;
-    position: fixed;
-    inset: 0;
-    z-index: 50;
-    opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  .text-stroke {
-    -webkit-text-stroke: 1px rgba(244, 247, 251, 0.35);
-    color: transparent;
+  .surface {
+    background: var(--color-panel);
+    border: 1px solid var(--color-line);
+    border-radius: 1.25rem;
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.06);
   }
 }
 
@@ -62,7 +66,6 @@
   html {
     scroll-behavior: auto;
   }
-
   *,
   *::before,
   *::after {

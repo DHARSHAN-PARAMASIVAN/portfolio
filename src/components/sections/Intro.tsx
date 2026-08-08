@@ -1,42 +1,38 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 
-const lines = ["I BUILD.", "I VERIFY.", "I SECURE.", "I SHIP."];
-
 export function Intro() {
-  const reduce = useReducedMotion();
-
   return (
-    <section id="intro" className="border-y border-line py-24 md:py-32">
+    <section className="pb-16 md:pb-24">
       <div className="wrap">
-        <div className="space-y-2 md:space-y-3">
-          {lines.map((line, i) => (
-            <motion.h2
-              key={line}
-              className="display text-[clamp(2.4rem,10vw,7rem)]"
-              initial={reduce ? false : { opacity: 0, y: 40 }}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.4 }}
-              transition={{ duration: 0.65, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-            >
-              {i % 2 === 1 ? <span className="text-cyan">{line}</span> : line}
-            </motion.h2>
-          ))}
-        </div>
-
-        <p className="mt-10 max-w-2xl text-xl font-medium leading-snug text-ink md:text-2xl">
-          It doesn&apos;t matter where you start. It&apos;s how you{" "}
-          <span className="text-cyan">progress</span> from there.
-        </p>
-        <p className="mt-5 max-w-2xl text-mute md:text-lg">
-          I&apos;m interested in the complete software lifecycle — from architecture and development
-          to testing, security and production deployment.
-        </p>
-        <p className="mt-8 text-[0.75rem] tracking-[0.2em] text-mute">
-          {site.mantra.join(" · ")}
-        </p>
+        <Reveal className="surface grid gap-8 p-6 md:grid-cols-[1fr_1.2fr] md:p-10">
+          <div>
+            <p className="eyebrow">Positioning</p>
+            <h2 className="display mt-3 text-3xl font-700 md:text-4xl">
+              Not just code.
+              <span className="block text-soft">Complete delivery.</span>
+            </h2>
+          </div>
+          <div>
+            <p className="text-lg leading-relaxed text-soft">
+              I care about the full software lifecycle — architecture, implementation, automated
+              verification, API security, and shipping to production. That combination is how
+              reliable products are made.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {site.mantra.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full bg-paper-2 px-3.5 py-1.5 text-xs font-bold tracking-[0.12em] text-ink"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -17,7 +17,7 @@ export function Progress() {
 
   return (
     <div
-      className="fixed left-0 top-0 z-50 h-0.5 bg-gradient-to-r from-cyan to-white/70"
+      className="fixed left-0 top-0 z-50 h-0.5 bg-gradient-to-r from-accent to-accent-2"
       style={{ width: `${width}%` }}
       aria-hidden
     />
