@@ -3,13 +3,7 @@
 import { useEffect, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 
-const lines = [
-  "SIGNAL SHEET v1.0",
-  "CALIBRATING SUBJECT DP-01…",
-  "LOADING FRAMES…",
-  "BUILD · VERIFY · SECURE · SHIP",
-  "UPLINK READY",
-];
+const lines = ["SIGNAL SHEET", "LOADING ARCHIVE…", "READY"];
 
 export function BootSequence() {
   const reduce = useReducedMotion();
@@ -35,9 +29,9 @@ export function BootSequence() {
         window.setTimeout(() => {
           setVisible(false);
           sessionStorage.setItem("dp-booted", "1");
-        }, 420);
+        }, 280);
       }
-    }, 320);
+    }, 220);
 
     return () => window.clearInterval(tick);
   }, [reduce]);
@@ -46,21 +40,18 @@ export function BootSequence() {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-paper">
-      <div className="w-[min(92vw,420px)] border border-line bg-panel p-5 shadow-[8px_8px_0_rgba(0,0,0,0.08)]">
-        <p className="mono text-[0.68rem] text-accent">SYSTEM BOOT</p>
+      <div className="w-[min(88vw,360px)] px-2">
+        <p className="mono text-[0.68rem] text-accent">BOOT</p>
         <div className="mt-4 space-y-2">
           {lines.slice(0, step).map((line) => (
-            <p key={line} className="mono text-[0.72rem] text-ink">
-              <span className="text-accent">›</span> {line}
+            <p key={line} className="mono text-[0.75rem] text-ink">
+              {line}
             </p>
           ))}
-          {step < lines.length && (
-            <p className="mono animate-pulse text-[0.72rem] text-mute">_</p>
-          )}
         </div>
-        <div className="mt-5 h-1 overflow-hidden border border-line bg-paper-2">
+        <div className="mt-6 h-px overflow-hidden bg-line">
           <div
-            className="h-full bg-accent transition-all duration-300"
+            className="h-full bg-accent transition-all duration-200"
             style={{ width: `${(step / lines.length) * 100}%` }}
           />
         </div>

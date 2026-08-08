@@ -7,11 +7,11 @@ import { withBase } from "@/lib/paths";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
-  { href: "#work", label: "01 Work" },
-  { href: "#experience", label: "02 Log" },
-  { href: "#capabilities", label: "03 Stack" },
-  { href: "#about", label: "04 Subject" },
-  { href: "#contact", label: "05 Link" },
+  { href: "#work", label: "Work" },
+  { href: "#experience", label: "Experience" },
+  { href: "#capabilities", label: "Stack" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export function Nav() {

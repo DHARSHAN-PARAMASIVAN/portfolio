@@ -5,26 +5,38 @@ import { site } from "@/lib/site";
 
 export function Intro() {
   return (
-    <section className="pb-16 md:pb-20">
+    <section className="pb-16 md:pb-24">
       <div className="wrap">
-        <Reveal className="frame crop-marks grid gap-8 p-5 md:grid-cols-[0.8fr_1.2fr] md:p-8">
+        <Reveal className="grid gap-8 border-y border-line py-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16 md:py-14">
           <div>
             <p className="eyebrow">FIG. 00 — Thesis</p>
             <h2 className="display mt-3 text-3xl md:text-5xl">
-              Complete lifecycle.
+              Full lifecycle.
               <span className="mt-2 block italic text-soft">Not just commits.</span>
             </h2>
           </div>
           <div>
             <p className="text-base leading-relaxed text-soft md:text-lg">
-              Most portfolios show screenshots. This one tracks proof: automation that cut test time,
-              backends that got faster, APIs that got hardened, and an IoT platform that shipped live.
+              I build products, verify them with automation, and harden the APIs that carry them —
+              then ship evidence, not screenshots alone.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2">
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
               {site.mantra.map((item) => (
-                <span key={item} className="chip border-accent/30 text-accent">
+                <span key={item} className="mono text-[0.68rem] text-accent">
                   {item}
                 </span>
+              ))}
+            </div>
+            <div className="mt-10 grid grid-cols-3 gap-6 border-t border-line pt-8">
+              {[
+                { k: "40%", v: "Test time cut" },
+                { k: "25%", v: "Backend faster" },
+                { k: "Live", v: "VortexIoT shipped" },
+              ].map((item) => (
+                <div key={item.v}>
+                  <p className="display text-2xl md:text-3xl">{item.k}</p>
+                  <p className="mono mt-1 text-[0.6rem] text-mute">{item.v}</p>
+                </div>
               ))}
             </div>
           </div>

@@ -7,6 +7,7 @@ export const site = {
   email: "dharshanparamasivan@gmail.com",
   phone: "+91 96776 54288",
   location: "Coimbatore",
+  availability: "Open to roles · Coimbatore / remote",
   github: "https://github.com/DHARSHAN-PARAMASIVAN",
   linkedin: "https://www.linkedin.com/in/dharshan-paramasivan/",
   resume: "/Dharshan-Resume.pdf",
@@ -15,6 +16,12 @@ export const site = {
     school: "PSG",
     score: "82%",
   },
+};
+
+export type CaseStudy = {
+  problem: string;
+  approach: string;
+  result: string;
 };
 
 export type Project = {
@@ -29,6 +36,8 @@ export type Project = {
   liveUrl: string | null;
   repoUrl: string | null;
   featured?: boolean;
+  selected?: boolean;
+  caseStudy?: CaseStudy;
 };
 
 export const projects: Project[] = [
@@ -45,6 +54,15 @@ export const projects: Project[] = [
     liveUrl: "https://machinary-one.vercel.app/",
     repoUrl: null,
     featured: true,
+    selected: true,
+    caseStudy: {
+      problem:
+        "Industrial machines fail without early signal — operators need live health, not post-mortems.",
+      approach:
+        "Stream telemetry through Kafka into InfluxDB, surface anomalies in a Next.js console, and run FastAPI services on AWS with Docker.",
+      result:
+        "A live production dashboard for machinery health — from sensor noise to actionable alerts.",
+    },
   },
   {
     id: "appointments",
@@ -57,6 +75,7 @@ export const projects: Project[] = [
     image: "/images/project-appointments.png",
     liveUrl: null,
     repoUrl: "https://github.com/DHARSHAN-PARAMASIVAN/Appoinment-Management-System",
+    selected: true,
   },
   {
     id: "security",
@@ -70,6 +89,7 @@ export const projects: Project[] = [
     liveUrl: null,
     repoUrl:
       "https://github.com/DHARSHAN-PARAMASIVAN/Vulnerability-Assessment-and-Penetration-Testing-on-API",
+    selected: true,
   },
   {
     id: "grievances",
@@ -82,6 +102,7 @@ export const projects: Project[] = [
     image: "/images/project-fullstack.png",
     liveUrl: null,
     repoUrl: "https://github.com/DHARSHAN-PARAMASIVAN/Grievances-Connect",
+    selected: true,
   },
   {
     id: "grievances-portal",
@@ -106,6 +127,7 @@ export const projects: Project[] = [
     image: "/images/visual-verify.png",
     liveUrl: null,
     repoUrl: "https://github.com/DHARSHAN-PARAMASIVAN/Study-Sync",
+    selected: true,
   },
   {
     id: "cinehub",
@@ -130,6 +152,7 @@ export const projects: Project[] = [
     image: "/images/visual-ship.png",
     liveUrl: null,
     repoUrl: "https://github.com/DHARSHAN-PARAMASIVAN/Skill-Sync-AI",
+    selected: true,
   },
   {
     id: "smart-allocation",
@@ -143,6 +166,7 @@ export const projects: Project[] = [
     liveUrl: null,
     repoUrl:
       "https://github.com/DHARSHAN-PARAMASIVAN/Smart-Allocation-Engine-for-PM-Internship-Scheme-1",
+    selected: true,
   },
   {
     id: "baby-monitoring",
