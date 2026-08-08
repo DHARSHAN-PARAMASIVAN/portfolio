@@ -1,5 +1,6 @@
 import { Nav } from "@/components/Nav";
 import { Progress } from "@/components/Progress";
+import { LiveBackground } from "@/components/LiveBackground";
 import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
 import { Work } from "@/components/sections/Work";
@@ -12,9 +13,10 @@ import { Footer } from "@/components/sections/Footer";
 export default function HomePage() {
   return (
     <>
+      <LiveBackground />
       <Progress />
       <Nav />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <Intro />
         <Work />

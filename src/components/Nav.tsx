@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { site } from "@/lib/site";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -34,11 +35,11 @@ export function Nav() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
-          solid ? "border-b border-line bg-paper/85 backdrop-blur-xl" : ""
+          solid ? "border-b border-line bg-paper/75 backdrop-blur-xl" : ""
         }`}
       >
         <div className="wrap flex h-16 items-center justify-between md:h-[4.25rem]">
-          <a href="#top" className="display text-lg font-800 tracking-tight">
+          <a href="#top" className="display text-lg font-extrabold tracking-tight">
             <span className="text-accent">{site.short}</span>
             <span className="ml-2 hidden text-ink sm:inline">Dharshan</span>
           </a>
@@ -56,6 +57,7 @@ export function Nav() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <a
               href={site.resume}
               download
@@ -76,13 +78,16 @@ export function Nav() {
       </header>
 
       {open && (
-        <div className="fixed inset-0 z-50 flex flex-col bg-paper px-6 pb-10 pt-24 md:hidden">
+        <div className="fixed inset-0 z-50 flex flex-col bg-paper/98 px-6 pb-10 pt-24 backdrop-blur-xl md:hidden">
+          <div className="mb-8 flex justify-end">
+            <ThemeToggle />
+          </div>
           <nav className="flex flex-1 flex-col justify-center gap-5">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="display text-4xl font-700"
+                className="display text-4xl font-bold"
                 onClick={() => setOpen(false)}
               >
                 {l.label}

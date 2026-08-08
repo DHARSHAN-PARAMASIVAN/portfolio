@@ -9,20 +9,21 @@ export function About() {
     <section id="about" className="pb-20 md:pb-28">
       <div className="wrap grid items-center gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal>
-          <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-[1.5rem] border border-line shadow-xl">
+          <div className="group relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-[1.5rem] border border-line shadow-xl">
             <Image
-              src="/images/portrait-cinematic.png"
-              alt={`${site.name} portrait`}
+              src="/images/portrait-looking-away.png"
+              alt={`${site.name} looking thoughtfully away from the camera`}
               fill
               sizes="400px"
-              className="object-cover object-top"
+              className="object-cover object-[center_20%] transition duration-700 group-hover:scale-[1.03]"
             />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night/50 via-transparent to-transparent" />
           </div>
         </Reveal>
 
         <Reveal delay={0.08}>
           <p className="eyebrow">About</p>
-          <h2 className="display mt-3 text-4xl font-700 md:text-5xl">
+          <h2 className="display mt-3 text-4xl font-bold md:text-5xl">
             The person behind the work.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-soft">

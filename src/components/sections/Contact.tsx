@@ -9,15 +9,16 @@ export function Contact() {
     <section id="contact" className="pb-20 md:pb-28">
       <div className="wrap">
         <Reveal>
-          <div className="relative overflow-hidden rounded-[1.75rem] bg-night px-6 py-12 text-white md:px-12 md:py-16">
-            <div className="absolute inset-0 bg-[url('/images/bg-atmosphere.png')] bg-cover bg-center opacity-30" />
-            <div className="absolute inset-0 bg-gradient-to-br from-night via-night/90 to-accent/30" />
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-line bg-night px-6 py-12 text-white md:px-12 md:py-16">
+            <div className="absolute inset-0 bg-[url('/images/bg-atmosphere.png')] bg-cover bg-center opacity-25" />
+            <div className="absolute inset-0 bg-gradient-to-br from-night via-night/90 to-accent/25" />
+            <div className="pointer-events-none absolute -right-16 top-0 h-56 w-56 rounded-full bg-accent-2/20 blur-3xl" />
 
             <div className="relative max-w-3xl">
               <p className="text-xs font-bold tracking-[0.18em] text-sky-300 uppercase">
                 Let&apos;s connect
               </p>
-              <h2 className="display mt-4 text-4xl font-700 md:text-6xl">
+              <h2 className="display mt-4 text-4xl font-bold md:text-6xl">
                 Ready to build something reliable.
               </h2>
               <p className="mt-4 max-w-xl text-white/70 md:text-lg">
@@ -28,7 +29,7 @@ export function Contact() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href={`mailto:${site.email}`}
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-ink"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900"
                 >
                   Email me <ArrowUpRight size={16} />
                 </a>
