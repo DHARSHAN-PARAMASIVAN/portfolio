@@ -1,16 +1,19 @@
-﻿# Dharshan Paramasivan — Portfolio
+# Dharshan Paramasivan — Portfolio
 
-Vanilla HTML/CSS/JS personal portfolio.
+Immersive personal brand site built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
 
-## Preview
-Open `index.html` in a browser, or run a local server:
+## Develop
 
 ```bash
-npx serve .
+npm install
+npm run dev
 ```
 
-## Structure
-- `index.html` — page structure
-- `styles.css` — design system & layout
-- `script.js` — interactions (cursor, reveal, magnetic CTAs)
-- `assets/` — profile photo & resume PDF
+Open [http://localhost:3000](http://localhost:3000).
+
+## Build
+
+```bash
+npm run build
+npm start
+```
