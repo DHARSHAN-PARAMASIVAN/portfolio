@@ -2,6 +2,7 @@
 
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { GlitchText } from "@/components/GlitchText";
 import { projects, type Project } from "@/lib/site";
 import { SmartImage } from "@/components/SmartImage";
 import { useAutoHighlight } from "@/hooks/useAutoHighlight";
@@ -21,15 +22,19 @@ export function Work() {
     <section id="work" className="pb-20 md:pb-28">
       <div className="wrap">
         <Reveal className="mb-10 max-w-2xl border-b border-line pb-5">
-          <p className="eyebrow">FIG. 01 — Archive</p>
-          <h2 className="display mt-2 text-4xl md:text-5xl">Selected work.</h2>
+          <p className="eyebrow">
+            <GlitchText text="FIG. 01 — Archive" interval={2500} />
+          </p>
+          <h2 className="display mt-2 text-4xl md:text-5xl">
+            <GlitchText text="Selected work." interval={1900} />
+          </h2>
           <p className="mt-3 text-soft">
             One deep frame, then a sheet index of systems worth opening.
           </p>
         </Reveal>
 
         <Reveal>
-          <article className="glass overflow-hidden">
+          <article className="glass fx-border-pulse overflow-hidden">
             <div className="flex items-center justify-between border-b border-line px-4 py-2.5 md:px-6">
               <span className="mono text-[0.62rem] text-mute">FEATURED CASE · 01</span>
               <span className="mono text-[0.62rem] text-accent">

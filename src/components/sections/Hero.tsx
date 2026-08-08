@@ -31,7 +31,12 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              {site.role}
+              {site.role.split(" · ").map((part, i) => (
+                <span key={part}>
+                  {i > 0 ? " · " : null}
+                  <GlitchText text={part} interval={2000 + i * 400} />
+                </span>
+              ))}
             </motion.p>
             <motion.h1
               className="display mt-4 text-[clamp(3.4rem,9vw,6.6rem)]"
@@ -122,7 +127,7 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="order-1 lg:order-2"
           >
-            <div className="overflow-hidden border border-line bg-panel">
+            <div className="overflow-hidden border border-line bg-panel fx-border-pulse">
               <div className="relative aspect-[4/5] min-h-[360px] sm:min-h-[460px] lg:min-h-[min(68vh,640px)]">
                 <SmartImage
                   src="/images/portrait-facing.png"
@@ -132,12 +137,15 @@ export function Hero() {
                   sizes="(max-width: 1024px) 100vw, 48vw"
                   className="object-cover object-[center_15%]"
                 />
+                <div className="scanline pointer-events-none" />
                 <div className="absolute bottom-3 left-3 flex items-center gap-2 border border-line bg-night/70 px-2 py-1 backdrop-blur-md">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400/70" />
                     <span className="relative m-auto h-1.5 w-1.5 rounded-full bg-emerald-400" />
                   </span>
-                  <span className="mono text-[0.55rem] text-white/80">SIGNAL LIVE</span>
+                  <span className="mono text-[0.55rem] text-white/80">
+                    <GlitchText text="SIGNAL LIVE" interval={1500} />
+                  </span>
                 </div>
               </div>
             </div>

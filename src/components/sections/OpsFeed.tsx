@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Reveal } from "@/components/Reveal";
+import { GlitchText } from "@/components/GlitchText";
 
 const SEED = [
   "IDS · anomaly score 0.12 · baseline",
@@ -45,9 +46,11 @@ export function OpsFeed() {
     <section id="ops" className="pb-16 md:pb-20">
       <div className="wrap">
         <Reveal>
-          <div className="border border-line bg-paper-2/90 shadow-sm backdrop-blur-sm dark:bg-panel/70 dark:shadow-none">
+          <div className="border border-line bg-paper-2/90 shadow-sm backdrop-blur-sm fx-border-pulse dark:bg-panel/70 dark:shadow-none">
             <div className="flex items-center justify-between border-b border-line px-4 py-2">
-              <p className="mono text-[0.62rem] text-accent">OPS FEED // LIVE</p>
+              <p className="mono text-[0.62rem] text-accent">
+                <GlitchText text="OPS FEED // LIVE" interval={1600} />
+              </p>
               <p className="mono text-[0.55rem] text-mute">
                 <span className="mr-2 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500 dark:bg-emerald-400" />
                 MONITORING

@@ -6,6 +6,7 @@ import { site } from "@/lib/site";
 import { withBase } from "@/lib/paths";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { AudioGuide } from "@/components/AudioGuide";
+import { GlitchText } from "@/components/GlitchText";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -43,7 +44,10 @@ export function Nav() {
       >
         <div className="wrap flex h-16 items-center justify-between">
           <a href="#top" className="mono text-[0.78rem] text-ink">
-            <span className="text-accent">DP</span> / SIGNAL SHEET
+            <span className="text-accent">
+              <GlitchText text="DP" interval={2200} />
+            </span>{" "}
+            / <GlitchText text="SIGNAL SHEET" interval={2800} />
           </a>
 
           <nav className="hidden items-center gap-5 lg:flex" aria-label="Primary">

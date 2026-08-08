@@ -27,15 +27,13 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("light");
-  const [ready, setReady] = useState(false);
+  const [theme, setThemeState] = useState<Theme>("dark");
 
   useEffect(() => {
     const stored = window.localStorage.getItem("dp-theme") as Theme | null;
-    const preferred = stored ?? "dark";
+    const preferred = stored === "light" || stored === "dark" ? stored : "dark";
     setThemeState(preferred);
     applyTheme(preferred);
-    setReady(true);
   }, []);
 
   const setTheme = useCallback((next: Theme) => {
@@ -53,13 +51,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     [theme, toggleTheme, setTheme]
   );
 
-  return (
-    <ThemeContext.Provider value={value}>
-      <div className={ready ? "opacity-100" : "opacity-0"} style={{ transition: "opacity 0.25s ease" }}>
-        {children}
-      </div>
-    </ThemeContext.Provider>
-  );
+  // Never gate the whole app behind opacity — that caused a permanent blank page
+  // when hydration was slow or failed.
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {

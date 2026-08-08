@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/Reveal";
+import { GlitchText } from "@/components/GlitchText";
 import { site, skills, projects, journey } from "@/lib/site";
 import { withBase } from "@/lib/paths";
 import { SHELL_HINTS, SHELL_RUN_EVENT } from "@/lib/shell";
@@ -182,9 +183,14 @@ export function HackerTerminal() {
     <section id="terminal" className="pb-16 md:pb-24">
       <div className="wrap">
         <Reveal className="mb-8 max-w-xl border-b border-line pb-5">
-          <p className="eyebrow">FIG. 0T — Shell</p>
+          <p className="eyebrow">
+            <GlitchText text="FIG. 0T — Shell" interval={2200} />
+          </p>
           <h2 className="display mt-2 text-4xl md:text-5xl">
-            Probe the <span className="italic text-soft">system.</span>
+            <GlitchText text="Probe the" interval={1900} />{" "}
+            <span className="italic text-soft">
+              <GlitchText text="system." interval={2100} />
+            </span>
           </h2>
           <p className="mt-3 max-w-md text-sm text-soft">
             Same commands as the cover cheat sheet. Type below or click a hint.
@@ -206,7 +212,7 @@ export function HackerTerminal() {
 
         <Reveal>
           <div
-            className="overflow-hidden border border-line bg-paper-2/90 shadow-sm backdrop-blur-sm dark:bg-panel/80 dark:shadow-none"
+            className="overflow-hidden border border-line bg-paper-2/90 shadow-sm backdrop-blur-sm fx-border-pulse dark:bg-panel/80 dark:shadow-none"
             onClick={() => inputRef.current?.focus({ preventScroll: true })}
           >
             <div className="flex items-center justify-between border-b border-line px-4 py-2">

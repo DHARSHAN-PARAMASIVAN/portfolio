@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal } from "@/components/Reveal";
+import { GlitchText } from "@/components/GlitchText";
 import { site } from "@/lib/site";
 
 export function Intro() {
@@ -9,10 +10,14 @@ export function Intro() {
       <div className="wrap">
         <Reveal className="grid gap-8 border-y border-line py-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16 md:py-14">
           <div>
-            <p className="eyebrow">FIG. 00 — Thesis</p>
+            <p className="eyebrow">
+              <GlitchText text="FIG. 00 — Thesis" interval={2400} />
+            </p>
             <h2 className="display mt-3 text-3xl md:text-5xl">
-              Full lifecycle.
-              <span className="mt-2 block italic text-soft">Not just commits.</span>
+              <GlitchText text="Full lifecycle." interval={2000} />
+              <span className="mt-2 block italic text-soft">
+                <GlitchText text="Not just commits." interval={2300} />
+              </span>
             </h2>
           </div>
           <div>
@@ -23,7 +28,7 @@ export function Intro() {
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
               {site.mantra.map((item) => (
                 <span key={item} className="mono text-[0.68rem] text-accent">
-                  {item}
+                  <GlitchText text={item} interval={1600 + item.length * 80} />
                 </span>
               ))}
             </div>
@@ -34,7 +39,9 @@ export function Intro() {
                 { k: "Live", v: "VortexIoT shipped" },
               ].map((item) => (
                 <div key={item.v}>
-                  <p className="display text-2xl md:text-3xl">{item.k}</p>
+                  <p className="display text-2xl md:text-3xl">
+                    <GlitchText text={item.k} interval={2100} />
+                  </p>
                   <p className="mono mt-1 text-[0.6rem] text-mute">{item.v}</p>
                 </div>
               ))}

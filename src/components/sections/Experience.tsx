@@ -1,6 +1,7 @@
 "use client";
 
 import { Reveal } from "@/components/Reveal";
+import { GlitchText } from "@/components/GlitchText";
 import { journey } from "@/lib/site";
 
 export function Experience() {
@@ -8,8 +9,12 @@ export function Experience() {
     <section id="experience" className="pb-20 md:pb-28">
       <div className="wrap">
         <Reveal className="mb-10 max-w-xl border-b border-line pb-5">
-          <p className="eyebrow">FIG. 02 — Mission log</p>
-          <h2 className="display mt-2 text-4xl md:text-5xl">Measured impact.</h2>
+          <p className="eyebrow">
+            <GlitchText text="FIG. 02 — Mission log" interval={2400} />
+          </p>
+          <h2 className="display mt-2 text-4xl md:text-5xl">
+            <GlitchText text="Measured impact." interval={2000} />
+          </h2>
         </Reveal>
 
         <div className="divide-y divide-line border-y border-line">

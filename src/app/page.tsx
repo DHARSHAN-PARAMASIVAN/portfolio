@@ -6,6 +6,8 @@ import { CommandPalette } from "@/components/CommandPalette";
 import { StatusBar } from "@/components/StatusBar";
 import { ToastHost } from "@/components/Toast";
 import { MatrixRain } from "@/components/MatrixRain";
+import { GlitchFX } from "@/components/GlitchFX";
+import { BootSequence } from "@/components/BootSequence";
 import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
 import { OpsFeed } from "@/components/sections/OpsFeed";
@@ -20,8 +22,10 @@ import { Footer } from "@/components/sections/Footer";
 export default function HomePage() {
   return (
     <>
+      <BootSequence />
       <LiveBackground />
       <MatrixRain />
+      <GlitchFX />
       <LabCursor />
       <CommandPalette />
       <ToastHost />

@@ -3,6 +3,7 @@
 import { ArrowUpRight, Copy } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { DecryptText } from "@/components/DecryptText";
+import { GlitchText } from "@/components/GlitchText";
 import { site } from "@/lib/site";
 import { withBase } from "@/lib/paths";
 import { toast } from "@/components/Toast";
@@ -21,14 +22,18 @@ export function Contact() {
     <section id="contact" className="pb-24 md:pb-32">
       <div className="wrap">
         <Reveal>
-          <div className="glass relative overflow-hidden px-6 py-12 md:px-12 md:py-16">
+          <div className="glass fx-border-pulse relative overflow-hidden px-6 py-12 md:px-12 md:py-16">
             <div className="pointer-events-none absolute -right-20 top-0 h-64 w-64 rounded-full bg-accent/20 blur-[90px]" />
+            <div className="scanline pointer-events-none" />
             <p className="mono relative text-[0.65rem] text-accent">
-              {site.availability.toUpperCase()}
+              <GlitchText text={site.availability.toUpperCase()} interval={2600} />
             </p>
             <h2 className="display relative mt-4 max-w-2xl text-4xl md:text-6xl">
-              Let&apos;s build something
-              <span className="italic text-soft"> reliable.</span>
+              <GlitchText text="Let's build something" interval={2100} />
+              <span className="italic text-soft">
+                {" "}
+                <GlitchText text="reliable." interval={2400} />
+              </span>
             </h2>
             <p className="relative mt-5 max-w-lg text-soft">
               Roles, internships, and collaborations across full-stack, QA automation, and API

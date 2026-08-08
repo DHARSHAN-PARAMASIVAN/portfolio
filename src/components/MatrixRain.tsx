@@ -70,7 +70,9 @@ export function MatrixRain() {
         }
         ctx.fillText(ch, x, y);
 
-        if (y > h && Math.random() > 0.975) drops[i] = 0;
+        if (y > h && Math.random() > 0.96) drops[i] = 0;
+        // Extra mid-column respawns so rain never feels sparse
+        if (Math.random() > 0.995) drops[i] = 0;
         drops[i]++;
       }
       raf = requestAnimationFrame(draw);
@@ -95,7 +97,7 @@ export function MatrixRain() {
   return (
     <canvas
       ref={ref}
-      className="pointer-events-none fixed inset-0 z-0 opacity-70 dark:z-0 dark:opacity-45 dark:mix-blend-screen"
+      className="pointer-events-none fixed inset-0 -z-[5] opacity-70 dark:opacity-45 dark:mix-blend-screen"
       aria-hidden
     />
   );
