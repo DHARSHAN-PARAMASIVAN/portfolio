@@ -5,303 +5,285 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Dharshan Paramasivan — builds full-stack products, automates QA, and secures APIs."
+      content="Dharshan Paramasivan — Full-Stack Developer, QA Automation, API Security."
     />
-    <title>Dharshan — Full-Stack · QA · API Security</title>
+    <title>Dharshan Paramasivan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="progress" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
 
-    <nav class="dock" aria-label="Primary">
-      <a class="dock__brand" href="#top">Dharshan</a>
-      <div class="dock__links">
+    <header class="top">
+      <a class="top__logo" href="#top">DP</a>
+      <nav class="top__nav" aria-label="Primary">
+        <a href="#build">Build</a>
+        <a href="#verify">Verify</a>
         <a href="#work">Work</a>
-        <a href="#proof">Proof</a>
-        <a href="#stack">Stack</a>
-        <a href="#hire">Hire</a>
-      </div>
-      <a class="dock__cta" href="assets/Dharshan-Resume.pdf" download>Resume</a>
-      <button class="dock__menu" aria-label="Menu" aria-expanded="false">
+        <a href="#connect">Connect</a>
+      </nav>
+      <a class="top__cta" href="assets/Dharshan-Resume.pdf" download>Resume</a>
+      <button class="top__burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span>
       </button>
-    </nav>
+    </header>
 
     <main id="top">
-      <!-- HERO: one composition, brand-first, full-bleed photo -->
-      <header class="hero">
-        <div class="hero__media">
-          <img
-            src="assets/profile.png"
-            alt="Dharshan Paramasivan"
-            width="1200"
-            height="1500"
-          />
-          <div class="hero__shade"></div>
+      <!-- HERO — Lando-style full bleed -->
+      <section class="hero">
+        <div class="hero__bg">
+          <img src="assets/hero-portrait.png" alt="" aria-hidden="true" />
+          <div class="hero__veil"></div>
         </div>
 
-        <div class="hero__content">
-          <p class="hero__avail">
-            <span class="dot"></span>
-            Open to roles · Coimbatore
+        <div class="hero__frame">
+          <p class="hero__tag">
+            <span class="live"></span>
+            Full-stack · QA · API security · Coimbatore
           </p>
-          <h1 class="hero__name">
-            <span class="line">Dharshan</span>
+
+          <h1 class="hero__title">
+            <span class="hero__word">Dharshan</span>
+            <span class="hero__word hero__word--accent">Paramasivan</span>
           </h1>
-          <p class="hero__role">
-            I <span class="swap" data-words="ship products,automate quality,secure APIs">ship products</span>
+
+          <p class="hero__manifesto">
+            Redefining how products ship — building systems, proving quality,
+            securing every endpoint.
           </p>
-          <p class="hero__line">
-            Full-stack engineer who also breaks and hardens systems — so what ships stays reliable.
-          </p>
-          <div class="hero__cta">
-            <a class="btn btn--solid" href="#work">See the work</a>
-            <a class="btn btn--line" href="#hire">Contact me</a>
+
+          <div class="hero__actions">
+            <a class="pill" href="#work">Enter the work</a>
+            <a class="pill pill--ghost" href="#connect">Message me</a>
           </div>
         </div>
 
-        <a class="hero__scroll" href="#impact" aria-label="Scroll">
-          <span>Scroll</span>
-          <i></i>
-        </a>
-      </header>
-
-      <!-- IMPACT: recruiter-effective numbers -->
-      <section class="impact" id="impact">
-        <div class="impact__rail">
-          <article class="stat reveal">
-            <strong data-count="40">0</strong><span>%</span>
-            <p>Faster test cycles after Selenium + Cucumber automation</p>
-          </article>
-          <article class="stat reveal" data-delay="1">
-            <strong data-count="30">0</strong><span>%</span>
-            <p>Higher test efficiency on end-to-end web flows</p>
-          </article>
-          <article class="stat reveal" data-delay="2">
-            <strong data-count="25">0</strong><span>%</span>
-            <p>Backend performance gain via Django + PostgreSQL tuning</p>
-          </article>
-          <article class="stat reveal" data-delay="3">
-            <strong>1</strong><span> live</span>
-            <p>IoT predictive maintenance platform on AWS</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section class="about" id="proof">
-        <div class="about__intro">
-          <p class="kicker reveal">Who I am</p>
-          <h2 class="display reveal">
-            Not just a developer.<br />
-            A builder who <em>verifies</em> and <em>defends</em>.
-          </h2>
-        </div>
-        <div class="about__body">
-          <p class="reveal">
-            I’m Dharshan Paramasivan — M.Sc. Software Systems at PSG College of Arts &amp; Science.
-            I design full-stack applications, turn manual QA into BDD automation, and pressure-test
-            APIs with Burp Suite and OWASP ZAP before attackers do.
-          </p>
-          <div class="pillars">
-            <div class="pillar reveal">
-              <span>01</span>
-              <h3>Build</h3>
-              <p>Django, MERN, Next.js, FastAPI — shipping usable products end to end.</p>
-            </div>
-            <div class="pillar reveal" data-delay="1">
-              <span>02</span>
-              <h3>Prove</h3>
-              <p>Selenium, Cucumber, JMeter — automation that cuts risk and time.</p>
-            </div>
-            <div class="pillar reveal" data-delay="2">
-              <span>03</span>
-              <h3>Protect</h3>
-              <p>API VAPT and secure design so reliability isn’t an afterthought.</p>
-            </div>
+        <div class="hero__ticker" aria-hidden="true">
+          <div class="ticker__track">
+            <span>Build</span><span>Test</span><span>Secure</span><span>Ship</span>
+            <span>Build</span><span>Test</span><span>Secure</span><span>Ship</span>
+            <span>Build</span><span>Test</span><span>Secure</span><span>Ship</span>
+            <span>Build</span><span>Test</span><span>Secure</span><span>Ship</span>
           </div>
         </div>
       </section>
 
-      <!-- WORK: horizontal showcase -->
-      <section class="work" id="work">
-        <div class="work__head">
-          <div>
-            <p class="kicker reveal">Selected work</p>
-            <h2 class="display reveal">Projects that show range.</h2>
-          </div>
-          <p class="work__hint reveal">Drag or scroll sideways →</p>
-        </div>
+      <!-- MANIFESTO strip -->
+      <section class="quote">
+        <p class="quote__text reveal">
+          It doesn’t matter where you start — it’s how you
+          <em>progress</em> from there.
+        </p>
+        <p class="quote__meta reveal">M.Sc. Software Systems · PSG · 82%</p>
+      </section>
 
-        <div class="work__track" tabindex="0" aria-label="Project gallery">
-          <article class="case case--feature">
-            <div class="case__meta">
-              <span>Featured · 2026</span>
-              <a href="https://machinary-one.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
-            </div>
+      <!-- ON / BUILD — impact like ON TRACK -->
+      <section class="split-head" id="build">
+        <h2 class="mega">
+          <span>On</span>
+          <span class="mega__accent">Build</span>
+        </h2>
+        <p class="split-head__copy reveal">
+          Full-stack delivery across Django, MERN, Next.js and FastAPI —
+          products designed to scale and survive production.
+        </p>
+      </section>
+
+      <section class="impact">
+        <article class="impact__card reveal">
+          <strong data-count="25">0</strong><span>%</span>
+          <p>Backend performance lift at Pinsphere</p>
+        </article>
+        <article class="impact__card reveal" data-delay="1">
+          <strong data-count="3">0</strong><span> mo</span>
+          <p>Full-stack internship shipping REST APIs</p>
+        </article>
+        <article class="impact__card reveal" data-delay="2">
+          <strong>1</strong><span> live</span>
+          <p>IoT platform deployed on AWS</p>
+        </article>
+      </section>
+
+      <!-- ON / VERIFY -->
+      <section class="split-head" id="verify">
+        <h2 class="mega">
+          <span>On</span>
+          <span class="mega__accent">Verify</span>
+        </h2>
+        <p class="split-head__copy reveal">
+          Automation and API security so what ships stays trustworthy —
+          Selenium, Cucumber, Burp Suite, OWASP ZAP.
+        </p>
+      </section>
+
+      <section class="impact">
+        <article class="impact__card reveal">
+          <strong data-count="40">0</strong><span>%</span>
+          <p>Faster testing after automation scripts</p>
+        </article>
+        <article class="impact__card reveal" data-delay="1">
+          <strong data-count="30">0</strong><span>%</span>
+          <p>Higher end-to-end test efficiency</p>
+        </article>
+        <article class="impact__card reveal" data-delay="2">
+          <strong>API</strong>
+          <p>VAPT with actionable hardening fixes</p>
+        </article>
+      </section>
+
+      <!-- WORK gallery — image led -->
+      <section class="split-head" id="work">
+        <h2 class="mega">
+          <span>Selected</span>
+          <span class="mega__accent">Work</span>
+        </h2>
+        <p class="split-head__copy reveal">
+          Campaigns of code — from industrial IoT to security labs.
+        </p>
+      </section>
+
+      <section class="gallery">
+        <article class="shot shot--hero reveal">
+          <div class="shot__media">
+            <img src="assets/project-iot.png" alt="VortexIoT industrial monitoring concept" />
+            <div class="shot__fade"></div>
+          </div>
+          <div class="shot__body">
+            <p class="shot__label">Featured · 2026</p>
             <h3>VortexIoT</h3>
-            <p class="case__title">Machinery Health Monitoring</p>
             <p>
-              Real-time industrial IoT platform: sensor telemetry, Kafka streams, ML anomaly detection,
-              and AWS deployment for predictive maintenance.
+              Machinery health monitoring — Kafka telemetry, ML anomaly detection,
+              Next.js + FastAPI, live on AWS.
             </p>
-            <ul class="chips">
-              <li>Next.js</li><li>FastAPI</li><li>Kafka</li><li>InfluxDB</li><li>PostgreSQL</li><li>AWS</li><li>Docker</li>
-            </ul>
+            <a class="pill" href="https://machinary-one.vercel.app/" target="_blank" rel="noopener noreferrer">
+              Open live demo
+            </a>
+          </div>
+        </article>
+
+        <div class="gallery__grid">
+          <article class="shot reveal">
+            <div class="shot__media">
+              <img src="assets/project-security.png" alt="API security visual" />
+              <div class="shot__fade"></div>
+            </div>
+            <div class="shot__body">
+              <p class="shot__label">2024 · Security</p>
+              <h3>API VAPT</h3>
+              <p>Burp Suite · Postman · OWASP ZAP — critical flaws found, fixes delivered.</p>
+            </div>
           </article>
 
-          <article class="case">
-            <div class="case__meta"><span>2024</span><span>Security</span></div>
-            <h3>API VAPT Lab</h3>
-            <p class="case__title">Vulnerability Assessment &amp; Penetration Testing</p>
-            <p>
-              Identified critical API flaws with Burp Suite, Postman, and OWASP ZAP — delivered
-              actionable hardening recommendations.
-            </p>
-            <ul class="chips">
-              <li>Burp Suite</li><li>OWASP ZAP</li><li>Postman</li>
-            </ul>
+          <article class="shot reveal" data-delay="1">
+            <div class="shot__media">
+              <img src="assets/project-fullstack.png" alt="Full-stack application visual" />
+              <div class="shot__fade"></div>
+            </div>
+            <div class="shot__body">
+              <p class="shot__label">2025 · Full-stack</p>
+              <h3>Appointments</h3>
+              <p>Django + PostgreSQL booking with role-based access control.</p>
+            </div>
           </article>
 
-          <article class="case">
-            <div class="case__meta"><span>2025</span><span>Full-stack</span></div>
-            <h3>Appointments</h3>
-            <p class="case__title">Role-based booking system</p>
-            <p>
-              Django + PostgreSQL scheduling with secure access control across user roles and
-              optimized database performance.
-            </p>
-            <ul class="chips">
-              <li>Django</li><li>Python</li><li>PostgreSQL</li>
-            </ul>
-          </article>
-
-          <article class="case">
-            <div class="case__meta"><span>2025</span><span>QA</span></div>
-            <h3>Automation Suite</h3>
-            <p class="case__title">End-to-end web testing framework</p>
-            <p>
-              Selenium WebDriver + Cucumber BDD covering login and data-entry flows —
-              30% less manual effort, higher reliability.
-            </p>
-            <ul class="chips">
-              <li>Selenium</li><li>Cucumber</li><li>Java</li>
-            </ul>
+          <article class="shot reveal" data-delay="2">
+            <div class="shot__media">
+              <img src="assets/project-qa.png" alt="Automation testing visual" />
+              <div class="shot__fade"></div>
+            </div>
+            <div class="shot__body">
+              <p class="shot__label">2025 · QA</p>
+              <h3>Automation Suite</h3>
+              <p>Selenium + Cucumber BDD — 30% less manual effort on critical flows.</p>
+            </div>
           </article>
         </div>
       </section>
 
       <!-- EXPERIENCE -->
-      <section class="exp">
-        <p class="kicker reveal">Experience</p>
-        <h2 class="display reveal">Internships with receipts.</h2>
-        <div class="exp__list">
-          <article class="job reveal">
-            <div class="job__side">
-              <span class="job__year">2025</span>
-              <span class="job__place">Fulcrum Technologies</span>
-            </div>
-            <div class="job__main">
-              <h3>Intern · Tester</h3>
-              <p>
-                End-to-end automation with Selenium + Cucumber BDD. Converted manual cases into
-                reusable scripts — <strong>30%</strong> efficiency lift, <strong>40%</strong> less testing time,
-                broader coverage.
-              </p>
-            </div>
-          </article>
-          <article class="job reveal" data-delay="1">
-            <div class="job__side">
-              <span class="job__year">2025</span>
-              <span class="job__place">Pinsphere Solutions</span>
-            </div>
-            <div class="job__main">
-              <h3>Intern · Full Stack Developer</h3>
-              <p>
-                Django + PostgreSQL apps and REST APIs with scalable architecture —
-                <strong>25%</strong> backend performance improvement and deployment-ready services.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- STACK -->
-      <section class="stack" id="stack">
-        <p class="kicker reveal">Toolkit</p>
-        <h2 class="display reveal">What I work with daily.</h2>
-        <div class="stack__grid">
-          <div class="stack__col reveal">
-            <h3>Languages</h3>
-            <p>Java · Python · JavaScript · SQL</p>
-          </div>
-          <div class="stack__col reveal" data-delay="1">
-            <h3>Frameworks</h3>
-            <p>MERN · Django · FastAPI · Next.js · REST</p>
-          </div>
-          <div class="stack__col reveal" data-delay="2">
-            <h3>Data</h3>
-            <p>PostgreSQL · MongoDB · MySQL · InfluxDB</p>
-          </div>
-          <div class="stack__col reveal" data-delay="3">
-            <h3>QA &amp; Security</h3>
-            <p>Selenium · Cucumber · JMeter · Burp · OWASP ZAP</p>
-          </div>
-          <div class="stack__col reveal" data-delay="4">
-            <h3>Cloud &amp; Tools</h3>
-            <p>Git · Docker · AWS · Kafka · NGINX · Supabase</p>
-          </div>
-          <div class="stack__col reveal" data-delay="5">
-            <h3>Learning</h3>
-            <p>APIsec · IBM Python · IITB IoT · NPTEL DBMS</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- EDUCATION strip -->
-      <section class="edu">
-        <div class="edu__item reveal">
-          <span>Education</span>
-          <strong>M.Sc. Software Systems · PSG · 82%</strong>
-        </div>
-        <div class="edu__item reveal" data-delay="1">
-          <span>School</span>
-          <strong>HSC · Hindusthan · 84%</strong>
-        </div>
-      </section>
-
-      <!-- HIRE -->
-      <section class="hire" id="hire">
-        <p class="kicker reveal">Next step</p>
-        <h2 class="display reveal">
-          Looking for someone who can<br />
-          <em>build, test, and secure?</em>
+      <section class="career">
+        <h2 class="mega mega--sm">
+          <span>Career</span>
+          <span class="mega__accent">Laps</span>
         </h2>
-        <p class="hire__copy reveal">
-          Let’s talk about internships, full-time roles, or freelance builds.
-        </p>
-        <div class="hire__actions reveal">
-          <a class="btn btn--solid" href="mailto:dharshanparamasivan@gmail.com">Email me</a>
-          <a class="btn btn--line" href="tel:+919677654288">+91 96776 54288</a>
+        <div class="career__list">
+          <article class="lap reveal">
+            <div class="lap__meta">
+              <span>2025</span>
+              <span>Fulcrum Technologies</span>
+            </div>
+            <h3>Intern · Tester</h3>
+            <p>
+              End-to-end Selenium + Cucumber automation. Manual cases → reusable scripts.
+              Efficiency up 30%. Testing time down 40%.
+            </p>
+          </article>
+          <article class="lap reveal" data-delay="1">
+            <div class="lap__meta">
+              <span>2025</span>
+              <span>Pinsphere Solutions</span>
+            </div>
+            <h3>Intern · Full Stack</h3>
+            <p>
+              Django + PostgreSQL products and REST APIs. Backend performance improved 25%
+              with scalable architecture.
+            </p>
+          </article>
         </div>
-        <div class="hire__links reveal">
-          <a href="https://github.com/DHARSHAN-PARAMASIVAN" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://www.linkedin.com/in/dharshan-paramasivan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="assets/Dharshan-Resume.pdf" download>Download CV</a>
+      </section>
+
+      <!-- STACK as partners-style -->
+      <section class="partners">
+        <h2 class="mega mega--sm">
+          <span>Stack</span>
+          <span class="mega__accent">&amp; Skills</span>
+        </h2>
+        <div class="partners__grid reveal">
+          <span>Java</span><span>Python</span><span>JavaScript</span><span>SQL</span>
+          <span>MERN</span><span>Django</span><span>FastAPI</span><span>Next.js</span>
+          <span>PostgreSQL</span><span>MongoDB</span><span>Kafka</span><span>AWS</span>
+          <span>Selenium</span><span>Cucumber</span><span>Burp Suite</span><span>OWASP ZAP</span>
+          <span>Docker</span><span>Git</span><span>JMeter</span><span>Supabase</span>
+        </div>
+      </section>
+
+      <!-- CONNECT -->
+      <section class="connect" id="connect">
+        <div class="connect__bg" aria-hidden="true">
+          <img src="assets/bg-atmosphere.png" alt="" />
+        </div>
+        <div class="connect__inner">
+          <p class="connect__kicker reveal">Always bringing the fight.</p>
+          <h2 class="mega reveal">
+            <span>Let’s</span>
+            <span class="mega__accent">Connect</span>
+          </h2>
+          <p class="connect__copy reveal">
+            Open to roles, internships, and builds that need someone who can
+            ship, test, and secure.
+          </p>
+          <div class="connect__actions reveal">
+            <a class="pill" href="mailto:dharshanparamasivan@gmail.com">Email Dharshan</a>
+            <a class="pill pill--ghost" href="tel:+919677654288">+91 96776 54288</a>
+          </div>
+          <div class="connect__social reveal">
+            <a href="https://github.com/DHARSHAN-PARAMASIVAN" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/dharshan-paramasivan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="assets/Dharshan-Resume.pdf" download>CV</a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="foot">
-      <p>© <span id="year"></span> Dharshan Paramasivan</p>
-      <a href="#top">Top ↑</a>
+      <p>© <span id="year"></span> Dharshan Paramasivan. All rights reserved.</p>
+      <a href="#top">Back to top</a>
     </footer>
 
     <script src="script.js"></script>
