@@ -26,8 +26,8 @@
   --line: rgba(18, 20, 26, 0.14);
   --panel: rgba(255, 255, 255, 0.86);
   --night: #0d1017;
-  --accent: #c1121f;
-  --accent-2: #e85d04;
+  --accent: #1d4ed8;
+  --accent-2: #0ea5e9;
   --grid: rgba(18, 20, 26, 0.05);
 }
 
@@ -40,8 +40,8 @@
   --line: rgba(238, 242, 247, 0.12);
   --panel: rgba(18, 22, 32, 0.88);
   --night: #05070b;
-  --accent: #ff4d4d;
-  --accent-2: #ff8a3d;
+  --accent: #3b82f6;
+  --accent-2: #38bdf8;
   --grid: rgba(238, 242, 247, 0.045);
 }
 
