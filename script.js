@@ -11,7 +11,7 @@
     const y = window.scrollY;
     const max = document.documentElement.scrollHeight - window.innerHeight;
     if (progress && max > 0) progress.style.width = `${(y / max) * 100}%`;
-    if (topbar) topbar.classList.toggle("is-solid", y > 40);
+    if (topbar) topbar.classList.toggle("is-solid", y > 24);
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -22,12 +22,13 @@
       burger.setAttribute("aria-expanded", String(!open));
       topbar.classList.toggle("is-open", !open);
     });
-    topbar.querySelectorAll(".top__nav a").forEach((a) =>
+
+    topbar.querySelectorAll(".top__nav a").forEach((a) => {
       a.addEventListener("click", () => {
         burger.setAttribute("aria-expanded", "false");
         topbar.classList.remove("is-open");
-      })
-    );
+      });
+    });
   }
 
   if (!reduce && "IntersectionObserver" in window) {
@@ -40,7 +41,7 @@
           }
         });
       },
-      { threshold: 0.14, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -5% 0px" }
     );
     document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
   } else {
@@ -51,7 +52,7 @@
     const target = Number(el.dataset.count || 0);
     if (!target) return;
     const start = performance.now();
-    const dur = 1200;
+    const dur = 1100;
     const frame = (now) => {
       const t = Math.min(1, (now - start) / dur);
       const eased = 1 - Math.pow(1 - t, 3);
@@ -71,25 +72,12 @@
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.45 }
     );
     document.querySelectorAll("[data-count]").forEach((el) => cio.observe(el));
   } else {
     document.querySelectorAll("[data-count]").forEach((el) => {
       el.textContent = el.dataset.count;
     });
-  }
-
-  // Gentle parallax on hero image
-  const heroImg = document.querySelector(".hero__bg img");
-  if (heroImg && !reduce) {
-    window.addEventListener(
-      "scroll",
-      () => {
-        const y = Math.min(window.scrollY, window.innerHeight);
-        heroImg.style.transform = `scale(1.05) translateY(${y * 0.12}px)`;
-      },
-      { passive: true }
-    );
   }
 })();
