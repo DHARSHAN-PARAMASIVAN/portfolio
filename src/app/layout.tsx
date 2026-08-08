@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: `${site.name} — Build · Verify · Secure · Ship`,
     description: site.tagline,
     type: "website",
-    images: ["/images/portrait-facing.png"],
+    images: ["https://dharshan-paramasivan.github.io/portfolio/images/portrait-facing.png"],
   },
 };
 

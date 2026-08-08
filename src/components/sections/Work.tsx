@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { projects, type Project } from "@/lib/site";
+import { SmartImage } from "@/components/SmartImage";
 
 const featured = projects.find((p) => p.featured)!;
 const index = projects.filter((p) => p.selected && !p.featured);
@@ -37,7 +37,7 @@ export function Work() {
             </div>
 
             <div className="relative aspect-[16/9] md:aspect-[21/9]">
-              <Image
+              <SmartImage
                 src={featured.image}
                 alt={featured.title}
                 fill

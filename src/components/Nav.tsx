@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { site } from "@/lib/site";
 import { withBase } from "@/lib/paths";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { AudioGuide } from "@/components/AudioGuide";
 
 const links = [
   { href: "#work", label: "Work" },
@@ -53,6 +54,7 @@ export function Nav() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <AudioGuide />
             <button
               type="button"
               onClick={() => window.dispatchEvent(new Event("dp-open-cmd"))}

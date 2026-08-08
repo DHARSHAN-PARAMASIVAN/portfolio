@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { interests, site } from "@/lib/site";
+import { SmartImage } from "@/components/SmartImage";
 
 export function About() {
   return (
@@ -11,7 +11,7 @@ export function About() {
         <Reveal>
           <div className="overflow-hidden border border-line bg-panel">
             <div className="relative aspect-[3/4]">
-              <Image
+              <SmartImage
                 src="/images/portrait-facing.png"
                 alt={site.name}
                 fill

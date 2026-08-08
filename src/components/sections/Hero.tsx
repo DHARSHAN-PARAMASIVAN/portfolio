@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { site } from "@/lib/site";
+import { SmartImage } from "@/components/SmartImage";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -46,7 +46,7 @@ export function Hero() {
           >
             <div className="overflow-hidden border border-line bg-panel">
               <div className="relative aspect-[4/5] min-h-[360px] sm:min-h-[460px] lg:min-h-[min(68vh,640px)]">
-                <Image
+                <SmartImage
                   src="/images/portrait-facing.png"
                   alt={site.name}
                   fill
