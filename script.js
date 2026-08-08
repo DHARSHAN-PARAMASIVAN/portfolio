@@ -2,104 +2,141 @@
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  const nav = document.querySelector(".nav");
-  const toggle = document.querySelector(".nav__toggle");
-  const links = document.querySelector(".nav__links");
-  const progress = document.querySelector(".scroll-progress");
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const finePointer = window.matchMedia("(pointer: fine)").matches;
+  const progress = document.querySelector(".progress");
+  const dock = document.querySelector(".dock");
+  const menu = document.querySelector(".dock__menu");
+  const links = document.querySelectorAll(".dock__links a");
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const onScroll = () => {
-    const scrolled = window.scrollY;
+    const y = window.scrollY;
     const max = document.documentElement.scrollHeight - window.innerHeight;
-    if (nav) nav.classList.toggle("is-scrolled", scrolled > 12);
-    if (progress && max > 0) {
-      progress.style.width = `${(scrolled / max) * 100}%`;
-    }
-  };
+    if (progress && max > 0) progress.style.width = `${(y / max) * 100}%`;
 
+    const sections = ["work", "proof", "stack", "hire"];
+    let active = "";
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight * 0.45) active = id;
+    });
+    links.forEach((a) => {
+      a.classList.toggle("is-active", a.getAttribute("href") === `#${active}`);
+    });
+  };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  if (toggle && links) {
-    toggle.addEventListener("click", () => {
-      const open = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!open));
-      links.classList.toggle("is-open", !open);
+  if (menu && dock) {
+    menu.addEventListener("click", () => {
+      const open = menu.getAttribute("aria-expanded") === "true";
+      menu.setAttribute("aria-expanded", String(!open));
+      dock.classList.toggle("is-open", !open);
     });
-
-    links.querySelectorAll("a").forEach((anchor) => {
-      anchor.addEventListener("click", () => {
-        toggle.setAttribute("aria-expanded", "false");
-        links.classList.remove("is-open");
-      });
-    });
+    links.forEach((a) =>
+      a.addEventListener("click", () => {
+        menu.setAttribute("aria-expanded", "false");
+        dock.classList.remove("is-open");
+      })
+    );
   }
 
-  // Scroll reveal
-  if (!reduceMotion && "IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
+  // Reveal
+  if (!reduce && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-in");
+            io.unobserve(e.target);
           }
         });
       },
-      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.15, rootMargin: "0px 0px -6% 0px" }
     );
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
   } else {
-    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-in"));
   }
 
-  // Custom cursor
-  const cursor = document.querySelector(".cursor");
-  const cursorDot = document.querySelector(".cursor-dot");
-  if (finePointer && !reduceMotion && cursor && cursorDot) {
-    document.body.classList.add("has-cursor");
-    let x = window.innerWidth / 2;
-    let y = window.innerHeight / 2;
-    let cx = x;
-    let cy = y;
-
-    window.addEventListener(
-      "pointermove",
-      (e) => {
-        x = e.clientX;
-        y = e.clientY;
-        cursorDot.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
-      },
-      { passive: true }
-    );
-
-    const tick = () => {
-      cx += (x - cx) * 0.18;
-      cy += (y - cy) * 0.18;
-      cursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
-      requestAnimationFrame(tick);
+  // Count-up stats
+  const animateCount = (el) => {
+    const target = Number(el.dataset.count || 0);
+    if (!target) return;
+    const start = performance.now();
+    const dur = 1100;
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (t < 1) requestAnimationFrame(tick);
     };
-    tick();
+    requestAnimationFrame(tick);
+  };
 
-    document.querySelectorAll("a, button, [data-magnetic]").forEach((el) => {
-      el.addEventListener("pointerenter", () => cursor.classList.add("is-hover"));
-      el.addEventListener("pointerleave", () => cursor.classList.remove("is-hover"));
+  if (!reduce && "IntersectionObserver" in window) {
+    const counters = document.querySelectorAll("[data-count]");
+    const cio = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            animateCount(e.target);
+            cio.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    counters.forEach((el) => cio.observe(el));
+  } else {
+    document.querySelectorAll("[data-count]").forEach((el) => {
+      el.textContent = el.dataset.count;
     });
   }
 
-  // Magnetic buttons
-  if (finePointer && !reduceMotion) {
-    document.querySelectorAll("[data-magnetic]").forEach((el) => {
-      el.addEventListener("pointermove", (e) => {
-        const rect = el.getBoundingClientRect();
-        const dx = e.clientX - (rect.left + rect.width / 2);
-        const dy = e.clientY - (rect.top + rect.height / 2);
-        el.style.transform = `translate(${dx * 0.18}px, ${dy * 0.22}px)`;
-      });
-      el.addEventListener("pointerleave", () => {
-        el.style.transform = "";
-      });
+  // Rotating role words
+  const swap = document.querySelector(".swap");
+  if (swap && !reduce) {
+    const words = (swap.dataset.words || "").split(",").map((w) => w.trim()).filter(Boolean);
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % words.length;
+      swap.style.opacity = "0";
+      swap.style.transform = "translateY(6px)";
+      setTimeout(() => {
+        swap.textContent = words[i];
+        swap.style.opacity = "1";
+        swap.style.transform = "none";
+      }, 220);
+    }, 2400);
+    swap.style.transition = "opacity 0.22s ease, transform 0.22s ease";
+  }
+
+  // Drag-to-scroll project track
+  const track = document.querySelector(".work__track");
+  if (track) {
+    let down = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    track.addEventListener("pointerdown", (e) => {
+      down = true;
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+      track.setPointerCapture(e.pointerId);
+    });
+    track.addEventListener("pointerup", () => {
+      down = false;
+    });
+    track.addEventListener("pointerleave", () => {
+      down = false;
+    });
+    track.addEventListener("pointermove", (e) => {
+      if (!down) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      track.scrollLeft = scrollLeft - (x - startX) * 1.2;
     });
   }
 })();
