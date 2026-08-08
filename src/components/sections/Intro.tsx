@@ -7,10 +7,10 @@ export function Intro() {
   return (
     <section className="pb-16 md:pb-24">
       <div className="wrap">
-        <Reveal className="surface grid gap-8 p-6 md:grid-cols-[1fr_1.2fr] md:p-10">
+        <Reveal className="surface surface-hover grid gap-8 p-6 md:grid-cols-[1fr_1.2fr] md:p-10">
           <div>
             <p className="eyebrow">Positioning</p>
-            <h2 className="display mt-3 text-3xl font-700 md:text-4xl">
+            <h2 className="display mt-3 text-3xl font-bold md:text-4xl">
               Not just code.
               <span className="block text-soft">Complete delivery.</span>
             </h2>
@@ -25,7 +25,7 @@ export function Intro() {
               {site.mantra.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full bg-paper-2 px-3.5 py-1.5 text-xs font-bold tracking-[0.12em] text-ink"
+                  className="chip-hover rounded-full border border-transparent bg-paper-2 px-3.5 py-1.5 text-xs font-bold tracking-[0.12em] text-ink"
                 >
                   {item}
                 </span>

@@ -33,7 +33,7 @@ export function Capabilities() {
       <div className="wrap">
         <Reveal className="mb-10">
           <p className="eyebrow">Capabilities</p>
-          <h2 className="display mt-3 text-4xl font-700 md:text-5xl">
+          <h2 className="display mt-3 text-4xl font-bold md:text-5xl">
             Build. Verify. Secure. Ship.
           </h2>
         </Reveal>
@@ -41,18 +41,23 @@ export function Capabilities() {
         <div className="grid gap-5 lg:grid-cols-3">
           {pillars.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.06}>
-              <article className="surface overflow-hidden h-full">
-                <div className="relative aspect-[16/10]">
+              <article className="surface surface-hover group h-full overflow-hidden">
+                <div className="img-zoom relative aspect-[16/10]">
                   <Image src={p.image} alt={p.title} fill sizes="33vw" className="object-cover" />
                 </div>
                 <div className="p-5 md:p-6">
-                  <h3 className="display text-2xl font-700">{p.title}</h3>
+                  <h3 className="display text-2xl font-bold transition group-hover:text-accent">
+                    {p.title}
+                  </h3>
                   <p className="mt-2 text-sm leading-relaxed text-soft">{p.copy}</p>
                   {p.stats && (
                     <div className="mt-5 grid grid-cols-2 gap-3">
                       {p.stats.map((s) => (
-                        <div key={s.label} className="rounded-xl bg-paper-2 p-3">
-                          <p className="display text-2xl font-700 text-accent">
+                        <div
+                          key={s.label}
+                          className="rounded-xl bg-paper-2 p-3 transition hover:-translate-y-1 hover:bg-accent hover:text-white"
+                        >
+                          <p className="display text-2xl font-bold text-accent hover:text-white">
                             <Counter value={s.value} suffix="%" />
                           </p>
                           <p className="mt-1 text-xs text-mute">{s.label}</p>
@@ -66,13 +71,13 @@ export function Capabilities() {
           ))}
         </div>
 
-        <Reveal className="surface mt-5 p-6 md:p-8">
+        <Reveal className="surface surface-hover mt-5 p-6 md:p-8">
           <p className="eyebrow">Toolkit</p>
           <div className="mt-5 flex flex-wrap gap-2">
             {skills.map((skill) => (
               <span
                 key={skill}
-                className="rounded-full border border-line bg-paper px-3.5 py-1.5 text-sm font-medium text-soft transition hover:border-accent/40 hover:text-ink"
+                className="chip-hover rounded-full border border-line bg-paper px-3.5 py-1.5 text-sm font-medium text-soft"
               >
                 {skill}
               </span>

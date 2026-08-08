@@ -49,7 +49,7 @@ export function Nav() {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium text-mute transition hover:text-ink"
+                className="link-underline text-sm font-medium text-mute hover:text-ink"
               >
                 {l.label}
               </a>

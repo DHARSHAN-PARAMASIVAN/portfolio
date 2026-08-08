@@ -15,7 +15,7 @@ export function Work() {
         <Reveal className="mb-8 flex flex-col justify-between gap-3 md:mb-12 md:flex-row md:items-end">
           <div>
             <p className="eyebrow">Selected work</p>
-            <h2 className="display mt-3 text-4xl font-700 md:text-5xl">Projects with proof.</h2>
+            <h2 className="display mt-3 text-4xl font-bold md:text-5xl">Projects with proof.</h2>
           </div>
           <p className="max-w-md text-soft">
             Flagship industrial IoT platform first — then systems across full-stack, security, and QA.
@@ -23,9 +23,9 @@ export function Work() {
         </Reveal>
 
         <Reveal>
-          <article className="surface overflow-hidden">
+          <article className="surface surface-hover group overflow-hidden">
             <div className="grid lg:grid-cols-[1.35fr_1fr]">
-              <div className="relative min-h-[280px] aspect-[16/10] lg:aspect-auto lg:min-h-full">
+              <div className="img-zoom relative min-h-[280px] aspect-[16/10] lg:aspect-auto lg:min-h-full">
                 <Image
                   src={featured.image}
                   alt={featured.title}
@@ -38,13 +38,15 @@ export function Work() {
                 <p className="text-xs font-bold tracking-[0.16em] text-accent uppercase">
                   Featured · {featured.year} · {featured.category}
                 </p>
-                <h3 className="display mt-3 text-3xl font-700 md:text-4xl">VortexIoT</h3>
+                <h3 className="display mt-3 text-3xl font-bold transition group-hover:text-accent md:text-4xl">
+                  VortexIoT
+                </h3>
                 <p className="mt-3 text-soft">{featured.blurb}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {featured.stack.map((s) => (
                     <span
                       key={s}
-                      className="rounded-full border border-line px-3 py-1 text-xs font-medium text-mute"
+                      className="chip-hover rounded-full border border-line px-3 py-1 text-xs font-medium text-mute"
                     >
                       {s}
                     </span>
@@ -54,9 +56,9 @@ export function Work() {
                   href={featured.href!}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-paper transition hover:bg-accent"
+                  className="btn-glow mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-paper hover:-translate-y-0.5 hover:bg-accent"
                 >
-                  Open live demo <ArrowUpRight size={16} />
+                  Open live demo <ArrowUpRight size={16} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
               </div>
             </div>
@@ -66,21 +68,26 @@ export function Work() {
         <div className="mt-5 grid gap-5 md:grid-cols-3">
           {rest.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.06}>
-              <article className="surface group h-full overflow-hidden transition hover:-translate-y-1 hover:shadow-xl">
-                <div className="relative aspect-[16/11]">
+              <article className="surface surface-hover group h-full overflow-hidden">
+                <div className="img-zoom relative aspect-[16/11]">
                   <Image
                     src={p.image}
                     alt={p.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                    className="object-cover"
                   />
+                  <div className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full border border-white/20 bg-night/50 text-white opacity-0 backdrop-blur transition duration-300 group-hover:opacity-100">
+                    <ArrowUpRight size={16} />
+                  </div>
                 </div>
                 <div className="p-5">
                   <p className="text-xs font-bold tracking-[0.14em] text-accent uppercase">
                     {p.number} · {p.year}
                   </p>
-                  <h3 className="display mt-2 text-xl font-700">{p.title}</h3>
+                  <h3 className="display mt-2 text-xl font-bold transition group-hover:text-accent">
+                    {p.title}
+                  </h3>
                   <p className="mt-2 text-sm text-soft">{p.blurb}</p>
                   <p className="mt-4 text-xs font-medium text-mute">{p.stack.join(" · ")}</p>
                 </div>
