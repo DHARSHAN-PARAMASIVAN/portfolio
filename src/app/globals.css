@@ -215,3 +215,13 @@
     transition: none !important;
   }
 }
+
+body.lab-cursor-on,
+body.lab-cursor-on a,
+body.lab-cursor-on button {
+  cursor: none;
+}
+
+footer {
+  padding-bottom: 3.25rem;
+}

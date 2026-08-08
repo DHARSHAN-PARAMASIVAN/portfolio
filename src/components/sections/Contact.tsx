@@ -1,13 +1,23 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Copy } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
 import { withBase } from "@/lib/paths";
+import { toast } from "@/components/Toast";
 
 export function Contact() {
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(site.email);
+      toast("EMAIL COPIED TO CLIPBOARD");
+    } catch {
+      toast("COPY FAILED — USE MAILTO");
+    }
+  };
+
   return (
-    <section id="contact" className="pb-20 md:pb-28">
+    <section id="contact" className="pb-24 md:pb-32">
       <div className="wrap">
         <Reveal>
           <div className="frame crop-marks overflow-hidden bg-night text-white">
@@ -18,7 +28,10 @@ export function Contact() {
             <div className="relative px-5 py-10 md:px-10 md:py-14">
               <div
                 className="absolute inset-0 opacity-20"
-                style={{ backgroundImage: `url(${withBase("/images/bg-atmosphere.png")})`, backgroundSize: "cover" }}
+                style={{
+                  backgroundImage: `url(${withBase("/images/bg-atmosphere.png")})`,
+                  backgroundSize: "cover",
+                }}
               />
               <div className="relative max-w-3xl">
                 <h2 className="display text-4xl md:text-6xl">
@@ -30,14 +43,27 @@ export function Contact() {
                   and API security.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <a href={`mailto:${site.email}`} className="lab-btn bg-accent border-accent">
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="lab-btn border-accent bg-accent"
+                    data-cursor="hover"
+                  >
                     Email <ArrowUpRight size={14} />
                   </a>
+                  <button
+                    type="button"
+                    onClick={copyEmail}
+                    className="lab-btn lab-btn-ghost border-white/30 text-white hover:text-white"
+                    data-cursor="hover"
+                  >
+                    <Copy size={14} /> Copy email
+                  </button>
                   <a
                     href={site.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="lab-btn lab-btn-ghost border-white/30 text-white hover:text-white"
+                    data-cursor="hover"
                   >
                     LinkedIn
                   </a>
@@ -46,6 +72,7 @@ export function Contact() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="lab-btn lab-btn-ghost border-white/30 text-white hover:text-white"
+                    data-cursor="hover"
                   >
                     GitHub
                   </a>
@@ -53,6 +80,7 @@ export function Contact() {
                     href={withBase(site.resume)}
                     download
                     className="lab-btn lab-btn-ghost border-white/30 text-white hover:text-white"
+                    data-cursor="hover"
                   >
                     CV ↓
                   </a>

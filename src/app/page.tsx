@@ -1,6 +1,11 @@
 import { Nav } from "@/components/Nav";
 import { Progress } from "@/components/Progress";
 import { LiveBackground } from "@/components/LiveBackground";
+import { BootSequence } from "@/components/BootSequence";
+import { LabCursor } from "@/components/LabCursor";
+import { CommandPalette } from "@/components/CommandPalette";
+import { StatusBar } from "@/components/StatusBar";
+import { ToastHost } from "@/components/Toast";
 import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
 import { Work } from "@/components/sections/Work";
@@ -13,7 +18,11 @@ import { Footer } from "@/components/sections/Footer";
 export default function HomePage() {
   return (
     <>
+      <BootSequence />
       <LiveBackground />
+      <LabCursor />
+      <CommandPalette />
+      <ToastHost />
       <Progress />
       <Nav />
       <main className="relative z-10">
@@ -26,6 +35,7 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
+      <StatusBar />
     </>
   );
 }

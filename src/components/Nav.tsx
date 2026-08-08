@@ -53,6 +53,13 @@ export function Nav() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("dp-open-cmd"))}
+              className="mono hidden border border-line bg-panel px-2.5 py-2 text-[0.62rem] text-mute transition hover:border-accent hover:text-accent md:inline-flex"
+            >
+              CTRL K
+            </button>
             <ThemeToggle />
             <a href={withBase(site.resume)} download className="lab-btn hidden sm:inline-flex">
               CV ↓
