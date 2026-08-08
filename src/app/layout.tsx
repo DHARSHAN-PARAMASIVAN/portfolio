@@ -24,9 +24,9 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${site.name} — Signal Sheet`,
+  title: `${site.name} — Cyber HUD`,
   description:
-    "Field notes from Dharshan Paramasivan: full-stack systems, QA automation, and API security.",
+    "Cinematic portfolio of Dharshan Paramasivan: full-stack systems, QA automation, and API security.",
   metadataBase: new URL("https://dharshan-paramasivan.github.io/portfolio"),
   openGraph: {
     title: `${site.name} — Build · Verify · Secure · Ship`,
@@ -40,7 +40,7 @@ const themeInit = `
 (() => {
   try {
     const stored = localStorage.getItem('dp-theme');
-    const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const theme = stored || 'dark';
     if (theme === 'dark') document.documentElement.classList.add('dark');
     document.documentElement.style.colorScheme = theme;
   } catch (_) {}

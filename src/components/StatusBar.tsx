@@ -27,6 +27,7 @@ export function StatusBar() {
   useEffect(() => {
     const map = [
       { id: "top", label: "COVER" },
+      { id: "reveal", label: "REVEAL" },
       { id: "work", label: "ARCHIVE" },
       { id: "experience", label: "LOG" },
       { id: "capabilities", label: "STACK" },

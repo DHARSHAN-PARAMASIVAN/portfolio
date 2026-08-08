@@ -1,7 +1,6 @@
 import { Nav } from "@/components/Nav";
 import { Progress } from "@/components/Progress";
 import { LiveBackground } from "@/components/LiveBackground";
-import { BootSequence } from "@/components/BootSequence";
 import { LabCursor } from "@/components/LabCursor";
 import { CommandPalette } from "@/components/CommandPalette";
 import { StatusBar } from "@/components/StatusBar";
@@ -18,7 +17,6 @@ import { Footer } from "@/components/sections/Footer";
 export default function HomePage() {
   return (
     <>
-      <BootSequence />
       <LiveBackground />
       <LabCursor />
       <CommandPalette />

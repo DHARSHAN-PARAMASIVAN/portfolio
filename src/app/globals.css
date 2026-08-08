@@ -16,8 +16,23 @@
   --font-mono: var(--font-mono-face), ui-monospace, monospace;
 }
 
-/* SIGNAL SHEET — not the usual blue SaaS vibe */
+/* Cyber HUD — dark-first cinematic system */
 :root {
+  --paper: #020202;
+  --paper-2: #0a0c10;
+  --ink: #f4f7fb;
+  --soft: #b8c0ce;
+  --mute: #7a8496;
+  --line: rgba(255, 255, 255, 0.1);
+  --panel: rgba(10, 12, 18, 0.72);
+  --night: #000000;
+  --accent: #3b82f6;
+  --accent-2: #22d3ee;
+  --grid: rgba(59, 130, 246, 0.06);
+  --glow: rgba(59, 130, 246, 0.45);
+}
+
+html:not(.dark) {
   --paper: #eceef2;
   --paper-2: #dde2ea;
   --ink: #12141a;
@@ -29,20 +44,22 @@
   --accent: #1d4ed8;
   --accent-2: #0ea5e9;
   --grid: rgba(18, 20, 26, 0.05);
+  --glow: rgba(29, 78, 216, 0.35);
 }
 
 .dark {
-  --paper: #0b0d12;
-  --paper-2: #151922;
-  --ink: #eef2f7;
-  --soft: #c2cad8;
-  --mute: #8b95a8;
-  --line: rgba(238, 242, 247, 0.12);
-  --panel: rgba(18, 22, 32, 0.88);
-  --night: #05070b;
+  --paper: #020202;
+  --paper-2: #0a0c10;
+  --ink: #f4f7fb;
+  --soft: #b8c0ce;
+  --mute: #7a8496;
+  --line: rgba(255, 255, 255, 0.1);
+  --panel: rgba(10, 12, 18, 0.72);
+  --night: #000000;
   --accent: #3b82f6;
-  --accent-2: #38bdf8;
-  --grid: rgba(238, 242, 247, 0.045);
+  --accent-2: #22d3ee;
+  --grid: rgba(59, 130, 246, 0.06);
+  --glow: rgba(59, 130, 246, 0.45);
 }
 
 @layer base {
@@ -94,11 +111,35 @@
   .frame {
     background: var(--panel);
     border: 1px solid var(--line);
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+    backdrop-filter: blur(16px);
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   .frame:hover {
-    border-color: color-mix(in oklab, var(--accent) 40%, var(--line));
+    border-color: color-mix(in oklab, var(--accent) 45%, var(--line));
+    box-shadow: 0 0 32px color-mix(in oklab, var(--accent) 12%, transparent);
+  }
+
+  .glass {
+    background: color-mix(in oklab, var(--panel) 90%, transparent);
+    border: 1px solid var(--line);
+    backdrop-filter: blur(20px);
+  }
+
+  .hud-grid {
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .film-grain {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   .crop-marks {
@@ -136,29 +177,36 @@
     min-height: 2.85rem;
     padding: 0.7rem 1.15rem;
     border: 1px solid var(--ink);
-    background: var(--ink);
-    color: var(--paper);
+    background: transparent;
+    color: var(--ink);
     font-family: var(--font-mono);
     font-size: 0.72rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   }
 
   .lab-btn:hover {
     background: var(--accent);
     border-color: var(--accent);
+    color: white;
+  }
+
+  .lab-btn-solid {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  .lab-btn-solid:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
   }
 
   .lab-btn-ghost {
     background: transparent;
     color: var(--ink);
-  }
-
-  .lab-btn-ghost:hover {
-    background: var(--accent);
-    color: white;
-    border-color: var(--accent);
   }
 
   .chip {
@@ -185,8 +233,17 @@
     position: absolute;
     inset-inline: 0;
     height: 6rem;
-    background: linear-gradient(to bottom, transparent, color-mix(in oklab, var(--accent) 12%, transparent), transparent);
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      color-mix(in oklab, var(--accent) 12%, transparent),
+      transparent
+    );
     animation: scan 10s linear infinite;
+  }
+
+  .neon-pulse {
+    animation: neonPulse 2.4s ease-in-out infinite;
   }
 }
 
@@ -196,6 +253,18 @@
   }
   100% {
     top: 112%;
+  }
+}
+
+@keyframes neonPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    box-shadow: 0 0 0 0 var(--glow);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 12px 2px var(--glow);
   }
 }
 

@@ -47,7 +47,11 @@ export function Nav() {
 
           <nav className="hidden items-center gap-5 lg:flex" aria-label="Primary">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className="mono text-[0.68rem] text-mute hover:text-accent">
+              <a
+                key={l.href}
+                href={l.href}
+                className="mono text-[0.68rem] text-mute transition hover:text-accent"
+              >
                 {l.label}
               </a>
             ))}
@@ -55,13 +59,6 @@ export function Nav() {
 
           <div className="flex items-center gap-2">
             <AudioGuide />
-            <button
-              type="button"
-              onClick={() => window.dispatchEvent(new Event("dp-open-cmd"))}
-              className="mono hidden border border-line bg-panel px-2.5 py-2 text-[0.62rem] text-mute transition hover:border-accent hover:text-accent md:inline-flex"
-            >
-              CTRL K
-            </button>
             <ThemeToggle />
             <a href={withBase(site.resume)} download className="lab-btn hidden sm:inline-flex">
               CV ↓
@@ -80,9 +77,6 @@ export function Nav() {
 
       {open && (
         <div className="fixed inset-0 z-50 flex flex-col bg-paper px-6 pb-10 pt-24 lg:hidden">
-          <div className="mb-8 flex justify-end">
-            <ThemeToggle />
-          </div>
           <nav className="flex flex-1 flex-col justify-center gap-5">
             {links.map((l) => (
               <a

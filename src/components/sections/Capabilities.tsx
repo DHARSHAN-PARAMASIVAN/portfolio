@@ -30,9 +30,11 @@ export function Capabilities() {
         <div className="grid gap-8 border-b border-line pb-10 md:grid-cols-3 md:gap-10">
           {pillars.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.04}>
-              <p className="mono text-[0.62rem] text-accent">0{i + 1}</p>
-              <h3 className="display mt-3 text-2xl md:text-3xl">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-soft">{p.copy}</p>
+              <div className="glass h-full p-5 md:p-6">
+                <p className="mono text-[0.62rem] text-accent">0{i + 1}</p>
+                <h3 className="display mt-3 text-2xl md:text-3xl">{p.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-soft">{p.copy}</p>
+              </div>
             </Reveal>
           ))}
         </div>

@@ -3,12 +3,13 @@
 import { useEffect, useMemo, useState } from "react";
 
 const destinations = [
-  { id: "top", label: "00 · Home", hint: "Signal sheet cover" },
-  { id: "work", label: "01 · Work", hint: "Project archive" },
-  { id: "experience", label: "02 · Log", hint: "Mission impact" },
-  { id: "capabilities", label: "03 · Stack", hint: "Instruments" },
-  { id: "about", label: "04 · Subject", hint: "Portrait & education" },
-  { id: "contact", label: "05 · Link", hint: "Establish uplink" },
+  { id: "top", label: "00 · Home", hint: "Frame scroll cover" },
+  { id: "reveal", label: "01 · Reveal", hint: "Neural portrait" },
+  { id: "work", label: "02 · Work", hint: "Project archive" },
+  { id: "experience", label: "03 · Log", hint: "Mission impact" },
+  { id: "capabilities", label: "04 · Stack", hint: "Instruments" },
+  { id: "about", label: "05 · Subject", hint: "Portrait & education" },
+  { id: "contact", label: "06 · Link", hint: "Establish uplink" },
 ];
 
 export function CommandPalette() {

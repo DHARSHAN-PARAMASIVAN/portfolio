@@ -26,9 +26,8 @@ export function Work() {
           </p>
         </Reveal>
 
-        {/* Featured case */}
         <Reveal>
-          <article className="overflow-hidden border border-line bg-panel">
+          <article className="glass overflow-hidden">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-4 py-2.5 md:px-6">
               <span className="mono text-[0.62rem] text-mute">FEATURED CASE</span>
               <span className="mono text-[0.62rem] text-accent">
@@ -45,7 +44,7 @@ export function Work() {
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-night/70 via-night/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-night/80 via-night/20 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-5 md:p-8">
                 <h3 className="display text-4xl text-white md:text-6xl">VortexIoT</h3>
                 <p className="mt-2 max-w-xl text-sm text-white/75 md:text-base">{featured.blurb}</p>
@@ -84,6 +83,7 @@ export function Work() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="lab-btn"
+                  data-cursor="hover"
                 >
                   Live demo <ArrowUpRight size={14} />
                 </a>
@@ -92,11 +92,12 @@ export function Work() {
           </article>
         </Reveal>
 
-        {/* Sheet index */}
         <Reveal className="mt-12">
           <div className="mb-4 flex items-end justify-between gap-4 border-b border-line pb-3">
             <p className="mono text-[0.68rem] text-mute">SHEET INDEX</p>
-            <p className="mono text-[0.62rem] text-mute">{String(index.length).padStart(2, "0")} FRAMES</p>
+            <p className="mono text-[0.62rem] text-mute">
+              {String(index.length).padStart(2, "0")} FRAMES
+            </p>
           </div>
           <ul className="divide-y divide-line border-b border-line">
             {index.map((p) => {
@@ -107,7 +108,8 @@ export function Work() {
                     href={href ?? "#"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group grid grid-cols-[3rem_1fr_auto] items-baseline gap-3 py-4 transition-colors hover:bg-paper-2/60 md:grid-cols-[4rem_1fr_12rem_auto] md:gap-6 md:px-2"
+                    className="group grid grid-cols-[3rem_1fr_auto] items-baseline gap-3 py-4 transition-colors hover:bg-white/[0.03] md:grid-cols-[4rem_1fr_12rem_auto] md:gap-6 md:px-2"
+                    data-cursor="hover"
                   >
                     <span className="mono text-[0.68rem] text-mute group-hover:text-accent">
                       {p.number}

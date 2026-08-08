@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export function Intro() {
   return (
-    <section className="pb-16 md:pb-24">
+    <section className="pb-16 pt-8 md:pb-24 md:pt-12">
       <div className="wrap">
         <Reveal className="grid gap-8 border-y border-line py-10 md:grid-cols-[0.85fr_1.15fr] md:gap-16 md:py-14">
           <div>

@@ -27,10 +27,10 @@ export function Hero() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#work" className="lab-btn">
+              <a href="#work" className="lab-btn lab-btn-solid">
                 View work →
               </a>
-              <a href={`mailto:${site.email}`} className="lab-btn lab-btn-ghost">
+              <a href={`mailto:${site.email}`} className="lab-btn">
                 Email me
               </a>
             </div>

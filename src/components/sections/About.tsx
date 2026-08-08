@@ -9,7 +9,7 @@ export function About() {
     <section id="about" className="pb-20 md:pb-28">
       <div className="wrap grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <Reveal>
-          <div className="overflow-hidden border border-line bg-panel">
+          <div className="glass overflow-hidden">
             <div className="relative aspect-[3/4]">
               <SmartImage
                 src="/images/portrait-facing.png"
