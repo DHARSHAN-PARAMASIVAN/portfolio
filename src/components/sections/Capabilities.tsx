@@ -8,21 +8,21 @@ import { skills } from "@/lib/site";
 const pillars = [
   {
     title: "Build",
-    copy: "Full-stack apps with Django, MERN, Next.js, FastAPI, and production-minded APIs.",
+    copy: "Django, MERN, Next.js, FastAPI — products designed to survive production.",
     image: "/images/visual-build.png",
   },
   {
     title: "Verify",
-    copy: "Selenium + Cucumber automation that cut testing time and raised coverage.",
+    copy: "Selenium + Cucumber automation that reduced testing time and raised coverage.",
     image: "/images/visual-verify.png",
     stats: [
       { value: 40, label: "Faster testing" },
-      { value: 30, label: "Efficiency gain" },
+      { value: 30, label: "Efficiency" },
     ],
   },
   {
     title: "Secure",
-    copy: "API VAPT with Burp Suite, OWASP ZAP, and Postman — discover, validate, harden.",
+    copy: "API VAPT with Burp Suite, OWASP ZAP, Postman — discover, validate, harden.",
     image: "/images/visual-secure.png",
   },
 ];
@@ -31,36 +31,29 @@ export function Capabilities() {
   return (
     <section id="capabilities" className="pb-20 md:pb-28">
       <div className="wrap">
-        <Reveal className="mb-10">
-          <p className="eyebrow">Capabilities</p>
-          <h2 className="display mt-3 text-4xl font-bold md:text-5xl">
-            Build. Verify. Secure. Ship.
-          </h2>
+        <Reveal className="mb-8 border-b border-line pb-4">
+          <p className="eyebrow">FIG. 03 — Instruments</p>
+          <h2 className="display mt-2 text-4xl md:text-5xl">Build. Verify. Secure.</h2>
         </Reveal>
 
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid gap-4 lg:grid-cols-3">
           {pillars.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.06}>
-              <article className="surface surface-hover group h-full overflow-hidden">
-                <div className="img-zoom relative aspect-[16/10]">
+            <Reveal key={p.title} delay={i * 0.05}>
+              <article className="frame h-full overflow-hidden">
+                <div className="relative aspect-[16/10]">
                   <Image src={p.image} alt={p.title} fill sizes="33vw" className="object-cover" />
                 </div>
-                <div className="p-5 md:p-6">
-                  <h3 className="display text-2xl font-bold transition group-hover:text-accent">
-                    {p.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-soft">{p.copy}</p>
+                <div className="p-4 md:p-5">
+                  <h3 className="display text-2xl">{p.title}</h3>
+                  <p className="mt-2 text-sm text-soft">{p.copy}</p>
                   {p.stats && (
-                    <div className="mt-5 grid grid-cols-2 gap-3">
+                    <div className="mt-4 grid grid-cols-2 gap-2">
                       {p.stats.map((s) => (
-                        <div
-                          key={s.label}
-                          className="rounded-xl bg-paper-2 p-3 transition hover:-translate-y-1 hover:bg-accent hover:text-white"
-                        >
-                          <p className="display text-2xl font-bold text-accent hover:text-white">
+                        <div key={s.label} className="border border-line bg-paper-2 p-3">
+                          <p className="display text-2xl text-accent">
                             <Counter value={s.value} suffix="%" />
                           </p>
-                          <p className="mt-1 text-xs text-mute">{s.label}</p>
+                          <p className="mono mt-1 text-[0.6rem] text-mute">{s.label}</p>
                         </div>
                       ))}
                     </div>
@@ -71,14 +64,11 @@ export function Capabilities() {
           ))}
         </div>
 
-        <Reveal className="surface surface-hover mt-5 p-6 md:p-8">
-          <p className="eyebrow">Toolkit</p>
-          <div className="mt-5 flex flex-wrap gap-2">
+        <Reveal className="frame mt-4 p-5 md:p-6">
+          <p className="eyebrow">Toolkit strip</p>
+          <div className="mt-4 flex flex-wrap gap-2">
             {skills.map((skill) => (
-              <span
-                key={skill}
-                className="chip-hover rounded-full border border-line bg-paper px-3.5 py-1.5 text-sm font-medium text-soft"
-              >
+              <span key={skill} className="chip">
                 {skill}
               </span>
             ))}

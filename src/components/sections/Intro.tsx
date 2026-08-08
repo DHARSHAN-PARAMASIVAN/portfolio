@@ -5,28 +5,24 @@ import { site } from "@/lib/site";
 
 export function Intro() {
   return (
-    <section className="pb-16 md:pb-24">
+    <section className="pb-16 md:pb-20">
       <div className="wrap">
-        <Reveal className="surface surface-hover grid gap-8 p-6 md:grid-cols-[1fr_1.2fr] md:p-10">
+        <Reveal className="frame crop-marks grid gap-8 p-5 md:grid-cols-[0.8fr_1.2fr] md:p-8">
           <div>
-            <p className="eyebrow">Positioning</p>
-            <h2 className="display mt-3 text-3xl font-bold md:text-4xl">
-              Not just code.
-              <span className="block text-soft">Complete delivery.</span>
+            <p className="eyebrow">FIG. 00 — Thesis</p>
+            <h2 className="display mt-3 text-3xl md:text-5xl">
+              Complete lifecycle.
+              <span className="mt-2 block italic text-soft">Not just commits.</span>
             </h2>
           </div>
           <div>
-            <p className="text-lg leading-relaxed text-soft">
-              I care about the full software lifecycle — architecture, implementation, automated
-              verification, API security, and shipping to production. That combination is how
-              reliable products are made.
+            <p className="text-base leading-relaxed text-soft md:text-lg">
+              Most portfolios show screenshots. This one tracks proof: automation that cut test time,
+              backends that got faster, APIs that got hardened, and an IoT platform that shipped live.
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {site.mantra.map((item) => (
-                <span
-                  key={item}
-                  className="chip-hover rounded-full border border-transparent bg-paper-2 px-3.5 py-1.5 text-xs font-bold tracking-[0.12em] text-ink"
-                >
+                <span key={item} className="chip border-accent/30 text-accent">
                   {item}
                 </span>
               ))}

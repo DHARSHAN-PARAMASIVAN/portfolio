@@ -1,31 +1,38 @@
 import type { Metadata } from "next";
-import { Syne, DM_Sans } from "next/font/google";
+import { Instrument_Serif, Sora, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
-const display = Syne({
+const display = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-syne",
-  weight: ["500", "600", "700", "800"],
+  variable: "--font-serif",
+  weight: "400",
+  style: ["normal", "italic"],
 });
 
-const body = DM_Sans({
+const body = Sora({
   subsets: ["latin"],
-  variable: "--font-dm",
+  variable: "--font-body",
   weight: ["400", "500", "600", "700"],
 });
 
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono-face",
+  weight: ["400", "500"],
+});
+
 export const metadata: Metadata = {
-  title: `${site.name} — Full-Stack · QA · API Security`,
+  title: `${site.name} — Signal Sheet`,
   description:
-    "Professional portfolio of Dharshan Paramasivan — full-stack engineering, QA automation, and API security.",
+    "Field notes from Dharshan Paramasivan: full-stack systems, QA automation, and API security.",
   metadataBase: new URL("https://dharshan-paramasivan.github.io/portfolio"),
   openGraph: {
-    title: `${site.name} — Full-Stack · QA · API Security`,
+    title: `${site.name} — Build · Verify · Secure · Ship`,
     description: site.tagline,
     type: "website",
-    images: ["/images/portrait-editorial.png"],
+    images: ["/images/portrait-facing.png"],
   },
 };
 
@@ -42,7 +49,11 @@ const themeInit = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
       </head>
