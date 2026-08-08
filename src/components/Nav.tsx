@@ -9,6 +9,7 @@ import { AudioGuide } from "@/components/AudioGuide";
 
 const links = [
   { href: "#work", label: "Work" },
+  { href: "#terminal", label: "Shell" },
   { href: "#experience", label: "Experience" },
   { href: "#capabilities", label: "Stack" },
   { href: "#about", label: "About" },

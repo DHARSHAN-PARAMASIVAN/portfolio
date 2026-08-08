@@ -27,8 +27,10 @@ export function StatusBar() {
   useEffect(() => {
     const map = [
       { id: "top", label: "COVER" },
-      { id: "reveal", label: "REVEAL" },
+      { id: "intro", label: "THESIS" },
+      { id: "ops", label: "OPS" },
       { id: "work", label: "ARCHIVE" },
+      { id: "terminal", label: "SHELL" },
       { id: "experience", label: "LOG" },
       { id: "capabilities", label: "STACK" },
       { id: "about", label: "SUBJECT" },
@@ -53,7 +55,7 @@ export function StatusBar() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/90 backdrop-blur-md">
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/95 backdrop-blur-md dark:bg-paper/90">
       <div className="wrap flex h-9 items-center justify-between gap-3">
         <p className="mono truncate text-[0.62rem] text-mute">
           <span className="text-accent">{site.location.toUpperCase()}</span> · IST {time}

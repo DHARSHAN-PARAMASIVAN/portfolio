@@ -5,9 +5,12 @@ import { LabCursor } from "@/components/LabCursor";
 import { CommandPalette } from "@/components/CommandPalette";
 import { StatusBar } from "@/components/StatusBar";
 import { ToastHost } from "@/components/Toast";
+import { MatrixRain } from "@/components/MatrixRain";
 import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
+import { OpsFeed } from "@/components/sections/OpsFeed";
 import { Work } from "@/components/sections/Work";
+import { HackerTerminal } from "@/components/sections/HackerTerminal";
 import { Experience } from "@/components/sections/Experience";
 import { Capabilities } from "@/components/sections/Capabilities";
 import { About } from "@/components/sections/About";
@@ -18,6 +21,7 @@ export default function HomePage() {
   return (
     <>
       <LiveBackground />
+      <MatrixRain />
       <LabCursor />
       <CommandPalette />
       <ToastHost />
@@ -26,7 +30,9 @@ export default function HomePage() {
       <main className="relative z-10">
         <Hero />
         <Intro />
+        <OpsFeed />
         <Work />
+        <HackerTerminal />
         <Experience />
         <Capabilities />
         <About />

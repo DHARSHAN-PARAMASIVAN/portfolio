@@ -3,6 +3,7 @@ import { Instrument_Serif, Sora, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/site";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { AudioTalkProvider } from "@/components/AudioTalkContext";
 
 const display = Instrument_Serif({
   subsets: ["latin"],
@@ -24,9 +25,9 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${site.name} — Cyber HUD`,
+  title: `${site.name} — Signal Sheet`,
   description:
-    "Cinematic portfolio of Dharshan Paramasivan: full-stack systems, QA automation, and API security.",
+    "Portfolio of Dharshan Paramasivan: full-stack systems, QA automation, and API security.",
   metadataBase: new URL("https://dharshan-paramasivan.github.io/portfolio"),
   openGraph: {
     title: `${site.name} — Build · Verify · Secure · Ship`,
@@ -58,7 +59,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
       </head>
       <body className="bg-paper font-sans text-ink antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <AudioTalkProvider>{children}</AudioTalkProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

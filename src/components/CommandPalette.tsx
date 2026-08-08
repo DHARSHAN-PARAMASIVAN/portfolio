@@ -3,13 +3,15 @@
 import { useEffect, useMemo, useState } from "react";
 
 const destinations = [
-  { id: "top", label: "00 · Home", hint: "Frame scroll cover" },
-  { id: "reveal", label: "01 · Reveal", hint: "Neural portrait" },
-  { id: "work", label: "02 · Work", hint: "Project archive" },
-  { id: "experience", label: "03 · Log", hint: "Mission impact" },
-  { id: "capabilities", label: "04 · Stack", hint: "Instruments" },
-  { id: "about", label: "05 · Subject", hint: "Portrait & education" },
-  { id: "contact", label: "06 · Link", hint: "Establish uplink" },
+  { id: "top", label: "00 · Home", hint: "Signal cover" },
+  { id: "intro", label: "01 · Thesis", hint: "Operating doctrine" },
+  { id: "ops", label: "02 · Ops", hint: "Live IDS feed" },
+  { id: "work", label: "03 · Work", hint: "Project archive" },
+  { id: "terminal", label: "04 · Shell", hint: "Interactive terminal" },
+  { id: "experience", label: "05 · Log", hint: "Mission impact" },
+  { id: "capabilities", label: "06 · Stack", hint: "Instruments" },
+  { id: "about", label: "07 · Subject", hint: "Portrait & education" },
+  { id: "contact", label: "08 · Link", hint: "Establish uplink" },
 ];
 
 export function CommandPalette() {
@@ -66,7 +68,7 @@ export function CommandPalette() {
   return (
     <div className="fixed inset-0 z-[95] flex items-start justify-center bg-night/50 px-4 pt-[12vh] backdrop-blur-sm">
       <div
-        className="w-[min(92vw,520px)] border border-line bg-paper shadow-[12px_12px_0_rgba(0,0,0,0.2)]"
+        className="w-[min(92vw,520px)] border border-line bg-paper shadow-[12px_12px_0_rgba(0,0,0,0.08)] dark:shadow-[12px_12px_0_rgba(0,0,0,0.2)]"
         role="dialog"
         aria-label="Command palette"
       >

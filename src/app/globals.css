@@ -245,6 +245,18 @@ html:not(.dark) {
   .neon-pulse {
     animation: neonPulse 2.4s ease-in-out infinite;
   }
+
+  .glitch-active {
+    text-shadow:
+      2px 0 color-mix(in oklab, var(--accent) 70%, transparent),
+      -2px 0 color-mix(in oklab, var(--accent-2) 70%, transparent);
+  }
+
+  html:not(.dark) .glitch-active {
+    text-shadow:
+      1px 0 color-mix(in oklab, var(--accent) 55%, transparent),
+      -1px 0 color-mix(in oklab, var(--accent-2) 45%, transparent);
+  }
 }
 
 @keyframes scan {

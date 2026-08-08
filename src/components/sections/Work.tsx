@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { projects, type Project } from "@/lib/site";
 import { SmartImage } from "@/components/SmartImage";
+import { useAutoHighlight } from "@/hooks/useAutoHighlight";
 
 const featured = projects.find((p) => p.featured)!;
 const index = projects.filter((p) => p.selected && !p.featured);
@@ -14,6 +15,7 @@ function hrefFor(p: Project) {
 
 export function Work() {
   const cs = featured.caseStudy!;
+  const { active, pause, resume } = useAutoHighlight(index.length, 2600);
 
   return (
     <section id="work" className="pb-20 md:pb-28">
@@ -28,8 +30,8 @@ export function Work() {
 
         <Reveal>
           <article className="glass overflow-hidden">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-4 py-2.5 md:px-6">
-              <span className="mono text-[0.62rem] text-mute">FEATURED CASE</span>
+            <div className="flex items-center justify-between border-b border-line px-4 py-2.5 md:px-6">
+              <span className="mono text-[0.62rem] text-mute">FEATURED CASE · 01</span>
               <span className="mono text-[0.62rem] text-accent">
                 {featured.year} · {featured.category.toUpperCase()}
               </span>
@@ -99,33 +101,53 @@ export function Work() {
               {String(index.length).padStart(2, "0")} FRAMES
             </p>
           </div>
-          <ul className="divide-y divide-line border-b border-line">
-            {index.map((p) => {
+          <ul
+            className="divide-y divide-line border-b border-line"
+            onMouseEnter={pause}
+            onMouseLeave={resume}
+          >
+            {index.map((p, i) => {
               const href = hrefFor(p);
+              const num = String(i + 2).padStart(2, "0");
+              const isActive = active === i;
               return (
                 <li key={p.id}>
                   <a
                     href={href ?? "#"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group grid grid-cols-[3rem_1fr_auto] items-baseline gap-3 py-4 transition-colors hover:bg-white/[0.03] md:grid-cols-[4rem_1fr_12rem_auto] md:gap-6 md:px-2"
+                    className={`group grid grid-cols-[3rem_1fr_auto] items-baseline gap-3 py-4 transition-colors duration-500 md:grid-cols-[4rem_1fr_12rem_auto] md:gap-6 md:px-2 ${
+                      isActive ? "bg-accent/10" : "hover:bg-white/[0.03]"
+                    }`}
                     data-cursor="hover"
                   >
-                    <span className="mono text-[0.68rem] text-mute group-hover:text-accent">
-                      {p.number}
+                    <span
+                      className={`mono text-[0.68rem] transition-colors ${
+                        isActive ? "text-accent" : "text-mute group-hover:text-accent"
+                      }`}
+                    >
+                      {num}
                     </span>
                     <span>
-                      <span className="display text-xl transition-colors group-hover:text-accent md:text-2xl">
+                      <span
+                        className={`display text-xl transition-colors md:text-2xl ${
+                          isActive ? "text-accent" : "group-hover:text-accent"
+                        }`}
+                      >
                         {p.title}
                       </span>
                       <span className="mt-1 block text-sm text-mute md:hidden">{p.category}</span>
                     </span>
                     <span className="mono hidden text-[0.62rem] text-mute md:block">{p.category}</span>
-                    <span className="mono flex items-center gap-1 text-[0.62rem] text-mute transition-colors group-hover:text-accent">
+                    <span
+                      className={`mono flex items-center gap-1 text-[0.62rem] transition-colors ${
+                        isActive ? "text-accent" : "text-mute group-hover:text-accent"
+                      }`}
+                    >
                       {p.year}
                       <ArrowUpRight
                         size={12}
-                        className="opacity-0 transition group-hover:opacity-100"
+                        className={`transition ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
                       />
                     </span>
                   </a>

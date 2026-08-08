@@ -2,6 +2,7 @@
 
 import { ArrowUpRight, Copy } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { DecryptText } from "@/components/DecryptText";
 import { site } from "@/lib/site";
 import { withBase } from "@/lib/paths";
 import { toast } from "@/components/Toast";
@@ -61,7 +62,7 @@ export function Contact() {
             </div>
 
             <p className="mono relative mt-10 text-[0.65rem] text-mute">
-              {site.email} · {site.phone}
+              <DecryptText value={site.email} /> · {site.phone}
             </p>
           </div>
         </Reveal>
