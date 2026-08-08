@@ -3,6 +3,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
+import { withBase } from "@/lib/paths";
 
 export function Contact() {
   return (
@@ -10,7 +11,10 @@ export function Contact() {
       <div className="wrap">
         <Reveal>
           <div className="relative overflow-hidden rounded-[1.75rem] border border-line bg-night px-6 py-12 text-white md:px-12 md:py-16">
-            <div className="absolute inset-0 bg-[url('/images/bg-atmosphere.png')] bg-cover bg-center opacity-25" />
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-25"
+              style={{ backgroundImage: `url(${withBase("/images/bg-atmosphere.png")})` }}
+            />
             <div className="absolute inset-0 bg-gradient-to-br from-night via-night/90 to-accent/25" />
             <div className="pointer-events-none absolute -right-16 top-0 h-56 w-56 rounded-full bg-accent-2/20 blur-3xl" />
 
@@ -50,7 +54,7 @@ export function Contact() {
                   GitHub <ArrowUpRight size={16} />
                 </a>
                 <a
-                  href={site.resume}
+                  href={withBase(site.resume)}
                   download
                   className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-semibold"
                 >

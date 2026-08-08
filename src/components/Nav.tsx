@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { site } from "@/lib/site";
+import { withBase } from "@/lib/paths";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
@@ -59,7 +60,7 @@ export function Nav() {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <a
-              href={site.resume}
+              href={withBase(site.resume)}
               download
               className="hidden rounded-full bg-ink px-4 py-2 text-sm font-semibold text-paper transition hover:bg-accent sm:inline-flex"
             >
@@ -95,7 +96,7 @@ export function Nav() {
             ))}
           </nav>
           <a
-            href={site.resume}
+            href={withBase(site.resume)}
             download
             className="rounded-full bg-ink px-5 py-3 text-center font-semibold text-paper"
             onClick={() => setOpen(false)}
